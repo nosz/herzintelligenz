@@ -1,5 +1,5 @@
 /* Herzintelligenz - Service Worker. VERSION muss mit VERSION in index.html uebereinstimmen. */
-const VERSION = "1.2.1";
+const VERSION = "1.2.2";
 const CACHE = "herzintelligenz-" + VERSION;
 const CORE = ["./", "index.html", "manifest.webmanifest"];
 const OPTIONAL = ["favicon.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable-512.png", "herzintelligenz_vorschau.jpg", "flags/at.svg", "flags/bay.svg", "flags/ber.svg", "flags/bn.svg", "flags/ch.svg", "flags/cs.svg", "flags/de.svg", "flags/el.svg", "flags/en.svg", "flags/es.svg", "flags/esar.svg", "flags/fr.svg", "flags/hes.svg", "flags/hr.svg", "flags/hu.svg", "flags/it.svg", "flags/ja.svg", "flags/mo.svg", "flags/nds.svg", "flags/nl.svg", "flags/no.svg", "flags/pl.svg", "flags/pt.svg", "flags/ptbr.svg", "flags/ru.svg", "flags/sax.svg", "flags/sv.svg", "flags/swg.svg", "flags/tr.svg", "flags/uk.svg", "flags/vi.svg", "flags/vls.svg", "flags/zh.svg"];

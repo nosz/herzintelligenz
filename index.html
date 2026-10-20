@@ -401,7 +401,7 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.1", STAND = "20.10.2026";
+const VERSION = "1.2.2", STAND = "20.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -21556,7 +21556,7 @@ function herzZahl(x){
 
 /* Fuß: Impressum */
 function legalNav(){
-  return h("nav", {class:"legal", "aria-label":t("legImp")}, h("span", {text:t("title") + " · " + t("by")}), h("span", {"aria-hidden":"true", text:"·"}), h("a", {href:IMPRESSUM, rel:"noopener", text:t("legImp")}));
+  return h("nav", {class:"legal", "aria-label":t("legImp")}, h("span", {text:t("title")}), h("span", {"aria-hidden":"true", text:"·"}), h("a", {href:"https://nosz.github.io/norbert-szpak", target:"_blank", rel:"noopener noreferrer", text:"Created by Norbert"}), h("span", {"aria-hidden":"true", text:"·"}), h("a", {href:IMPRESSUM, rel:"noopener", text:t("legImp")}));
 }
 /* Alle Links zu anderen Seiten öffnen in einem eigenen Browser-Tab, damit die App geöffnet bleibt */
 function linkeNeu(){

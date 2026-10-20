@@ -72,4 +72,4 @@ Ein Klick startet die App gleich in der jeweiligen Sprache (Adresse mit `?lang=<
 - Die Mundarten und Fremdsprachen sind liebevoll gemeint; Muttersprachler dürfen gern korrigieren.
 - Weitere Seiten von Norbert findest du in der App unter „Interessante Links“.
 
-**Von Norbert Szpak** · [Impressum](https://nosz.github.io/energietankstelle/impressum.html) · Version 1.2.0 (20.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
+**Von Norbert Szpak** · [Impressum](https://nosz.github.io/energietankstelle/impressum.html) · Version 1.2.2 (20.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
