@@ -2,12 +2,12 @@
 
 # Herzintelligenz (Dein Herz erklärt sich selbst)
 
-**Datei:** `index.html` (eine Datei, offline lauffähig, Version 1.0.1, Stand 20.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
+**Datei:** `index.html` (eine Datei, offline lauffähig, Version 1.1.0, Stand 20.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
 
 > **Veröffentlichung:** GitHub-Repository `herzintelligenz` (Benutzer `nosz`), Adresse `https://nosz.github.io/herzintelligenz/`. Alle Dateien der Liste unten ins Hauptverzeichnis des Repositories legen (ohne Unterordner; der Ordner `tests` bleibt lokal), GitHub Pages auf den Hauptzweig stellen. Bei anderer Adresse in `index.html` (canonical, og:url, og:image, twitter:image, `HOME`) und in dieser README anpassen.
 
 ## Inhalt
-Quiz-Lernspiel mit **8 kleinen Lektionen** rund um das menschliche Herz und der Figur **Herzi**, einem kleinen süßen Pixel-Herz, das der beste Freund des Nutzers ist: freundlich, humorvoll, hat den Nutzer sehr lieb und spricht ihn immer mit „du“ an. Die App gibt es in **11 Sprachen**, aufklappbar oben im Menü: Deutsch, English, Österreichisch, Schweizerisch, Italiano, Schwäbisch, Bayrisch, Hessisch, Sächsisch, Plattdeutsch und Berlinerisch (wird gespeichert).
+Quiz-Lernspiel mit **8 kleinen Lektionen** rund um das menschliche Herz und der Figur **Herzi**, einem kleinen süßen Pixel-Herz, das der beste Freund des Nutzers ist: freundlich, humorvoll, hat den Nutzer sehr lieb und spricht ihn immer mit „du“ an. Die App gibt es in **33 Sprachen**, wählbar oben im Menü über ein Fenster mit Suchfeld und drei Gruppen (Eigenname je Sprache; Suche auch nach deutschem oder englischem Namen): **Deutsch und Mundarten** (Deutsch, Österreichisch, Schweizerisch, Schwäbisch, Bayrisch, Hessisch, Sächsisch, Plattdeutsch, Berlinerisch), **Europa** (English, Français, Italiano, Español, Português (Portugal), Nederlands, Vlaams (Belgisch), Svenska, Norsk, Polski, Čeština, Hrvatski, Magyar, Moldovenească (Moldawisch), Українська, Русский, Ελληνικά, Türkçe) und **Weltweit** (Español Argentina, Português Brasil, 中文, 日本語, Tiếng Việt, বাংলা). Die Wahl wird gespeichert; Herzi und die Urkunde sprechen in der gewählten Sprache. Moldawisch ist Rumänisch (Republik Moldau), Belgisch ist Flämisch.
 
 | Nr. | Lektion | Fragen |
 |---|---|---|
@@ -20,11 +20,11 @@ Quiz-Lernspiel mit **8 kleinen Lektionen** rund um das menschliche Herz und der 
 | 7 | Wer hat mich entdeckt? | 4 |
 | 8 | Bossrunde: Herz-Profi | 5 |
 
-- **Kopfzeile:** „Herzintelligenz / Norbert Szpak“, Herzschläge-Zähler, aufklappbare Sprachwahl, Teilen, Hell/Dunkel (kein Knopf zum Entfernen von Herzi).
+- **Kopfzeile:** „Herzintelligenz / Norbert Szpak“, Herzschläge-Zähler, aufklappbare Sprachwahl, Sprachwahl, Teilen, Hell/Dunkel (kein Knopf zum Entfernen von Herzi).
 - **Herzi:** kleines Pixel-Herz mit Augen, Wangen und Füßchen, das im Takt pocht. Es schaut ab und zu vorbei (rein dekorativ, nicht klickbar): läuft quer, schaut vom Rand, erzählt Herz-Fakten und Zuspruch, erzählt Witze mit Pointe, pocht „Bumm-bumm“, tanzt, klettert die Wand hoch, geht kopfüber an der Decke, schwebt mit Luftballon davon oder taucht mit Funken aus dem Nichts auf (Puff). Der Start ist immer Herzi mitten im Bild mit Herzchen, danach Begrüßung oder Namensfrage (drängender, höchstens sechsmal) und Lob. Herzi spricht immer in der eingestellten Menüsprache; beim Sprachwechsel meldet es sich gleich neu. Sprechblasen verdecken nie einen Kopf. Aus bei „Bewegung reduzieren“. Test mit Adresse `?lauf=quer|gucken|sagen|fakt|witz|herzschlag|tanz|puff|kletter|decke|ballon|hallo|name|gruss|lob|kuss`.
 - **Quiz mit interessanten Fragen:** Überraschendes über das Herz (Herzzeiten, Oktopus mit drei Herzen, Blauwal, Etruskerspitzmaus, Sinusknoten, Harvey, Ibn an-Nafīs), damit der Nutzer staunt und stolz auf sein Herz ist.
 - **Herzrechner** in der Lektion „Mein Takt“: Alter eintragen, Herzi sagt, wie oft es schon geschlagen hat (etwa 70 Schläge pro Minute).
-- **Mehr von Norbert:** Karten mit Links zu Energietankstelle (https://nosz.github.io/energietankstelle), Challenge-App (https://nosz.github.io/challenge-app/), BabyLove (https://nosz.github.io/babylove) und Mutige Kinderherzen (https://www.mutige-kinderherzen.de/); dazu die Wikipedia-Quelle. **Alle Links zu anderen Seiten öffnen in einem eigenen Browser-Tab.**
+- **Interessante Links** (Abschnittsname in jeder Sprache übersetzt): Karten mit Links zu Energietankstelle (https://nosz.github.io/energietankstelle), Challenge-App (https://nosz.github.io/challenge-app/), BabyLove (https://nosz.github.io/babylove) und Mutige Kinderherzen (https://www.mutige-kinderherzen.de/); dazu die Wikipedia-Quelle. **Alle Links zu anderen Seiten öffnen in einem eigenen Browser-Tab.**
 - **Impressum** ganz unten in jeder Ansicht, mit Link zu https://nosz.github.io/energietankstelle/impressum.html.
 - **Spielmechanik:** 10 Herzschläge je richtiger Antwort, 1 bis 3 Sterne je Lektion, 5 Ränge von „Herzchen“ bis „Herzintelligenz-Meister“, Konfetti, Hell- und Dunkelmodus.
 - **Urkunden:** je Lektion eine Herz-Urkunde mit den Quiz-Fragen und richtigen Antworten, zum Abschluss die Meisterurkunde (PNG speichern oder drucken). Sprache der Urkunde = Menüsprache. Unterschrieben „Herzi“.
@@ -41,9 +41,10 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 ## Bekannte Grenzen
 - Die App ersetzt keinen ärztlichen Rat (Hinweis steht in der App).
 - **Dialekte (Österreichisch, Schweizerisch, Schwäbisch, Bayrisch, Hessisch, Sächsisch, Plattdeutsch, Berlinerisch) und Italienisch sind liebevoll gemeint, keine Rechtschreibnorm; Muttersprachler sollten die Texte gegenlesen**, ebenso die englischen Texte.
-- Adresse `https://nosz.github.io/herzintelligenz/` und Figurname „Herzi“ sind Annahmen, bitte bestätigen.
+- Dialekte, Italienisch und die neuen Sprachen sind nicht von Muttersprachlern geprüft. „Belgisch“ wurde als Flämisch, „Moldawisch“ als Rumänisch (Republik Moldau) umgesetzt.
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.1.0 (20.10.2026): **22 neue Sprachen** (insgesamt 33: Französisch, Spanisch, Argentinisch, Portugiesisch, Brasilianisch, Niederländisch, Flämisch, Schwedisch, Norwegisch, Polnisch, Tschechisch, Kroatisch, Ungarisch, Moldawisch, Ukrainisch, Russisch, Griechisch, Türkisch, Chinesisch, Japanisch, Vietnamesisch, Bengalisch), neue Sprachwahl mit Suchfeld und Gruppen, Herzrechner rechnet bei Japanisch und Chinesisch in 万 und 億.
 - 1.0.1 (20.10.2026): Mundart-Texte in der Oberfläche (Österreichisch, Berlinerisch, Sächsisch) näher am Dialekt, eigene Urkunden-Überschriften je Mundart, Herzrechner meldet falsche Eingaben in der eingestellten Sprache, kein Knopf mehr zum Entfernen von Herzi.
 - 1.0.0 (20.10.2026): erste Fassung mit 8 Lektionen, Herzi, 11 Sprachen, Herzrechner, Links, Impressum, Urkunden und Teilen.

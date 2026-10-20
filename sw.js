@@ -1,5 +1,5 @@
 /* Herzintelligenz - Service Worker. VERSION muss mit VERSION in index.html uebereinstimmen. */
-const VERSION = "1.0.1";
+const VERSION = "1.1.0";
 const CACHE = "herzintelligenz-" + VERSION;
 const CORE = ["./", "index.html", "manifest.webmanifest"];
 const OPTIONAL = ["favicon.png", "apple-touch-icon.png", "icon-192.png", "icon-512.png", "icon-maskable-512.png", "herzintelligenz_vorschau.jpg"];
