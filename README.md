@@ -20,7 +20,7 @@ Quiz-Lernspiel mit **8 kleinen Lektionen** rund um das menschliche Herz und der 
 | 7 | Wer hat mich entdeckt? | 4 |
 | 8 | Bossrunde: Herz-Profi | 5 |
 
-- **Kopfzeile:** „Herzintelligenz / Norbert Szpak“, Herzschläge-Zähler, aufklappbare Sprachwahl, Teilen, Herzi ein-/ausblenden (💗), Hell/Dunkel.
+- **Kopfzeile:** „Herzintelligenz / Norbert Szpak“, Herzschläge-Zähler, aufklappbare Sprachwahl, Teilen, Hell/Dunkel (kein Knopf zum Entfernen von Herzi).
 - **Herzi:** kleines Pixel-Herz mit Augen, Wangen und Füßchen, das im Takt pocht. Es schaut ab und zu vorbei (rein dekorativ, nicht klickbar): läuft quer, schaut vom Rand, erzählt Herz-Fakten und Zuspruch, erzählt Witze mit Pointe, pocht „Bumm-bumm“, tanzt, klettert die Wand hoch, geht kopfüber an der Decke, schwebt mit Luftballon davon oder taucht mit Funken aus dem Nichts auf (Puff). Der Start ist immer Herzi mitten im Bild mit Herzchen, danach Begrüßung oder Namensfrage (drängender, höchstens sechsmal) und Lob. Herzi spricht immer in der eingestellten Menüsprache; beim Sprachwechsel meldet es sich gleich neu. Sprechblasen verdecken nie einen Kopf. Aus bei „Bewegung reduzieren“. Test mit Adresse `?lauf=quer|gucken|sagen|fakt|witz|herzschlag|tanz|puff|kletter|decke|ballon|hallo|name|gruss|lob|kuss`.
 - **Quiz mit interessanten Fragen:** Überraschendes über das Herz (Herzzeiten, Oktopus mit drei Herzen, Blauwal, Etruskerspitzmaus, Sinusknoten, Harvey, Ibn an-Nafīs), damit der Nutzer staunt und stolz auf sein Herz ist.
 - **Herzrechner** in der Lektion „Mein Takt“: Alter eintragen, Herzi sagt, wie oft es schon geschlagen hat (etwa 70 Schläge pro Minute).

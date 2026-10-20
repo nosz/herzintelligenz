@@ -376,7 +376,6 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
   <span class="pill" id="coins" aria-live="polite"></span>
   <div class="lang" role="group" id="langs"></div>
   <button type="button" class="theme" id="share" aria-label="Teilen"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.5l6.8-4M8.6 13.5l6.8 4"/></svg></button>
-  <button type="button" class="theme" id="dinoBtn" aria-pressed="true">💗</button>
   <button type="button" class="theme" id="theme" aria-label="Hell/Dunkel">◐</button>
 </div></header>
 <main id="main" tabindex="-1"></main>
@@ -7826,7 +7825,7 @@ function chrome(){
   document.documentElement.lang = LANGS[li][3];
   document.title = t("title");
   $(".brand .dot").innerHTML = logoSvg(); $("#bt").textContent = t("title"); $("#bs").textContent = t("by"); $("#brand").setAttribute("aria-label", t("title") + " – " + t("over"));
-  $("#skip").textContent = t("skip"); $("#theme").setAttribute("aria-label", t("themeL")); $("#theme").setAttribute("title", t("themeL")); dinoBtnUpdate(); $("#share").setAttribute("aria-label", t("shT")); $("#share").setAttribute("title", t("shT"));
+  $("#skip").textContent = t("skip"); $("#theme").setAttribute("aria-label", t("themeL")); $("#theme").setAttribute("title", t("themeL")); $("#share").setAttribute("aria-label", t("shT")); $("#share").setAttribute("title", t("shT"));
   const T = totals(); $("#coins").textContent = "💗 " + T.co;
   langMenu($("#langs"));
   const sl = view.id ? LESSONS[idxOf(view.id)] : null;
@@ -7842,8 +7841,6 @@ $("#brand").onclick = () => {
   if(view.v === "home"){ const rm = matchMedia("(prefers-reduced-motion: reduce)").matches; window.scrollTo({top:0, behavior: rm ? "auto" : "smooth"}); $("#main").focus({preventScroll:true}); }
   else go("home");
 };
-function dinoBtnUpdate(){ const b = $("#dinoBtn"), an = !ach.noDino, l = t(an ? "dinoHide" : "dinoShow"); b.classList.toggle("off", !an); b.setAttribute("aria-pressed", String(an)); b.setAttribute("aria-label", l); b.setAttribute("title", l); }
-$("#dinoBtn").onclick = () => { ach.noDino = !ach.noDino; save(); dinoBtnUpdate(); snack(t(ach.noDino ? "dinoGone" : "dinoBack"), null, null, ach.noDino ? 5000 : 2500); };
 $("#share").onclick = openShare;
 $("#theme").onclick = () => { const r = document.documentElement; const dark = r.dataset.theme ? r.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches; r.dataset.theme = dark ? "light" : "dark"; };
 window.addEventListener("hashchange", () => { fromHash(); render(); });
