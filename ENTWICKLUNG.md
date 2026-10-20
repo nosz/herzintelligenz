@@ -26,7 +26,7 @@ Quiz-Lernspiel mit **8 kleinen Lektionen** rund um das menschliche Herz und der 
 - **Herzrechner** in der Lektion „Mein Takt“: Alter eintragen, Herzi sagt, wie oft es schon geschlagen hat (etwa 70 Schläge pro Minute).
 - **Sprache im Link:** Teilen, Link kopieren, WhatsApp, E-Mail und Urkunde teilen verwenden immer die Adresse mit der eingestellten Sprache, z. B. `https://nosz.github.io/herzintelligenz/?lang=it`; wer den Link öffnet, sieht die App gleich in dieser Sprache (hat Vorrang vor der gespeicherten Sprache). Die Adresse im Browser trägt ebenfalls immer `?lang=<Code>`. Codes: de, at, ch, swg, bay, hes, sax, nds, ber, en, fr, it, es, pt, nl, vls, sv, no, pl, cs, hr, hu, mo, uk, ru, el, tr, esar, ptbr, zh, ja, vi, bn; auch Kurzformen wie `pt-BR`, `es-AR`, `nl-BE`, `ro`, `nb` werden erkannt.
 - **Interessante Links** (Abschnittsname in jeder Sprache übersetzt): Karten mit Links zu Energietankstelle (https://nosz.github.io/energietankstelle), Challenge-App (https://nosz.github.io/challenge-app/), BabyLove (https://nosz.github.io/babylove) und Mutige Kinderherzen (https://www.mutige-kinderherzen.de/); dazu die Wikipedia-Quelle. **Alle Links zu anderen Seiten öffnen in einem eigenen Browser-Tab.**
-- **Impressum** ganz unten in jeder Ansicht, mit Link zu https://nosz.github.io/energietankstelle/impressum.html.
+- **Impressum** ganz unten in jeder Ansicht, mit Link zu https://nosz.github.io/norbert-szpak/impressum.html.
 - **Spielmechanik:** 10 Herzschläge je richtiger Antwort, 1 bis 3 Sterne je Lektion, 5 Ränge von „Herzchen“ bis „Herzintelligenz-Meister“, Konfetti, Hell- und Dunkelmodus.
 - **Urkunden:** je Lektion eine Herz-Urkunde mit den Quiz-Fragen und richtigen Antworten, zum Abschluss die Meisterurkunde (PNG speichern oder drucken). Sprache der Urkunde = Menüsprache. Unterschrieben „Herzi“.
 - **Teilen:** der größte, gefüllte Knopf auf Ergebnisseite, Urkunden-Seite (auch Meister), Urkunden-Übersicht und Lektionskarten; Text je Lektion mit Link zur App.
@@ -46,6 +46,8 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.2.4 (20.10.2026): Der Impressum-Link im Fuß zeigt auf https://nosz.github.io/norbert-szpak/impressum.html (vorher energietankstelle).
+- 1.2.3 (20.10.2026): Im Fuß der Startseite steht neben der Version statt des Datums der Link „Created by Norbert“ (gleiches Design, öffnet https://nosz.github.io/norbert-szpak in einem neuen Tab).
 - 1.2.2 (20.10.2026): Fuß: statt „Norbert Szpak“ jetzt der Link „Created by Norbert“ (gleiches Design wie Impressum, öffnet https://nosz.github.io/norbert-szpak in einem neuen Tab). Die Kopfzeile zeigt weiter den Namen.
 - 1.2.0 (20.10.2026): Flaggen als eigene SVG-Dateien im Ordner `flags` (aus flag-icons) statt in `index.html`, App-Name oben bricht auf dem Handy um.
 - 1.2.1 (20.10.2026): Sprachsuche überarbeitet: Suchbegriff wird in Name und Kürzel markiert, Treffer nach Relevanz sortiert (Namensanfang vor Wortanfang vor Beiname), Treffer über Beinamen zeigen den gefundenen Begriff unter dem Namen, mehrere Suchwörter, Trefferzähler, Esc leert zuerst das Suchfeld. Auf dem Handy öffnet das Fenster oben mit fester Höhe, das Suchfeld bleibt bei wenigen Treffern an derselben Stelle.
