@@ -2,7 +2,7 @@
 
 # Herzintelligenz (Dein Herz erklärt sich selbst)
 
-**Datei:** `index.html` (eine Datei, offline lauffähig, Version 1.0.0, Stand 20.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
+**Datei:** `index.html` (eine Datei, offline lauffähig, Version 1.0.1, Stand 20.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
 
 > **Veröffentlichung:** GitHub-Repository `herzintelligenz` (Benutzer `nosz`), Adresse `https://nosz.github.io/herzintelligenz/`. Alle Dateien der Liste unten ins Hauptverzeichnis des Repositories legen (ohne Unterordner; der Ordner `tests` bleibt lokal), GitHub Pages auf den Hauptzweig stellen. Bei anderer Adresse in `index.html` (canonical, og:url, og:image, twitter:image, `HOME`) und in dieser README anpassen.
 
@@ -45,4 +45,5 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.0.1 (20.10.2026): Mundart-Texte in der Oberfläche (Österreichisch, Berlinerisch, Sächsisch) näher am Dialekt, eigene Urkunden-Überschriften je Mundart, Herzrechner meldet falsche Eingaben in der eingestellten Sprache, kein Knopf mehr zum Entfernen von Herzi.
 - 1.0.0 (20.10.2026): erste Fassung mit 8 Lektionen, Herzi, 11 Sprachen, Herzrechner, Links, Impressum, Urkunden und Teilen.
