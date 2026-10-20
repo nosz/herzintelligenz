@@ -44,8 +44,5 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Adresse `https://nosz.github.io/herzintelligenz/` und Figurname „Herzi“ sind Annahmen, bitte bestätigen.
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
-## Tests
-Die Testsuite (`tests/index.html`, über einen lokalen Webserver öffnen, `?suite=<Teilname>` zum Filtern) stammt aus dem HSV-Projekt (gemeinsame Quiz- und Teilen-Tests, `config.js` angepasst, Sprachliste als Aufklapp-Menü) plus eigene Tests: Herzi (`figur.test.js`: Texte in elf Sprachen, Aufbau, Auftritte, Start, Überraschungen, Sprechblasen verdecken keinen Kopf) und Oberfläche (`extras.test.js`: Sprachwahl, Mehr-von-Norbert-Links, Impressum, Herzrechner, Links in eigenem Tab). **Stand 1.0.0: 100 Tests, alle grün.**
-
 ## Änderungen
 - 1.0.0 (20.10.2026): erste Fassung mit 8 Lektionen, Herzi, 11 Sprachen, Herzrechner, Links, Impressum, Urkunden und Teilen.
