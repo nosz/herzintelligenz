@@ -1,54 +1,75 @@
 [![Herzintelligenz: Dein Herz erklärt sich selbst](herzintelligenz_vorschau.jpg)](https://nosz.github.io/herzintelligenz/)
 
-# Herzintelligenz (Dein Herz erklärt sich selbst)
+# Herzintelligenz: Dein Herz erklärt sich selbst
 
-**Datei:** `index.html` (eine Datei, offline lauffähig, Version 1.2.0, Stand 20.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
+**Ein kleines Quiz-Lernspiel über dein Herz, erklärt von Herzi, deinem besten Freund.** Herzi ist ein kleines süßes Herz, das dich sehr lieb hat, dich duzt, Witze erzählt und dir in 8 kurzen Lektionen zeigt, wie das Herz arbeitet. Mit überraschenden Quizfragen, Urkunden zum Teilen und einer Frage, die nur Herzi stellen kann: *Wie oft hab ich für dich geschlagen?*
 
-> **Veröffentlichung:** GitHub-Repository `herzintelligenz` (Benutzer `nosz`), Adresse `https://nosz.github.io/herzintelligenz/`. Alle Dateien der Liste unten ins Hauptverzeichnis des Repositories legen, dazu den **Ordner `flags`** (34 Dateien, 33 Flaggen und die Lizenz); der Ordner `tests` bleibt lokal, GitHub Pages auf den Hauptzweig stellen. Bei anderer Adresse in `index.html` (canonical, og:url, og:image, twitter:image, `HOME`) und in dieser README anpassen.
+## [Jetzt starten: nosz.github.io/herzintelligenz](https://nosz.github.io/herzintelligenz/)
 
-## Inhalt
-Quiz-Lernspiel mit **8 kleinen Lektionen** rund um das menschliche Herz und der Figur **Herzi**, einem kleinen süßen Pixel-Herz, das der beste Freund des Nutzers ist: freundlich, humorvoll, hat den Nutzer sehr lieb und spricht ihn immer mit „du“ an. Die App gibt es in **33 Sprachen**, wählbar oben im Menü über ein Fenster mit Suchfeld und drei Gruppen (Eigenname je Sprache; Suche auch nach deutschem oder englischem Namen): **Deutsch und Mundarten** (Deutsch, Österreichisch, Schweizerisch, Schwäbisch, Bayrisch, Hessisch, Sächsisch, Plattdeutsch, Berlinerisch), **Europa** (English, Français, Italiano, Español, Português (Portugal), Nederlands, Vlaams (Belgisch), Svenska, Norsk, Polski, Čeština, Hrvatski, Magyar, Moldovenească (Moldawisch), Українська, Русский, Ελληνικά, Türkçe) und **Weltweit** (Español Argentina, Português Brasil, 中文, 日本語, Tiếng Việt, বাংলা). Jede Sprache hat eine kleine Flagge als eigene SVG-Datei im Ordner `flags` (Länderflaggen aus der Bibliothek flag-icons, MIT-Lizenz, Datei `flags/flag-icons-LICENSE.txt`; die Mundarten zeigen die selbst gezeichneten Farben ihrer Region). Die Wahl wird gespeichert; Herzi, die Urkunde und der App-Name oben („Herzintelligenz“ in der jeweiligen Sprache) folgen der gewählten Sprache. Moldawisch ist Rumänisch (Republik Moldau), Belgisch ist Flämisch.
+Kostenlos, ohne Anmeldung, läuft im Browser auf Handy, Tablet und Computer. Dein Fortschritt und dein Name bleiben nur auf deinem Gerät.
 
-| Nr. | Lektion | Fragen |
+## Was dich erwartet
+- **8 kleine Lektionen** mit Karten, Humor und einem Quiz: Aufbau, Kreislauf, Herzschlag, Herzstolpern, Herzen im Tierreich, Geschichte und eine Bossrunde.
+- **Herzi**, das kleine pochende Herz, schaut vorbei, erzählt Herz-Fakten und Witze, tanzt und klettert durchs Bild.
+- **Herzrechner:** Alter eintragen und erfahren, wie oft das Herz schon für dich geschlagen hat.
+- **Urkunden** für jede Lektion und eine Meisterurkunde, zum Speichern, Drucken und Teilen.
+- **33 Sprachen**, jeweils mit Flagge: Hochdeutsch, acht Mundarten und viele Weltsprachen. Der Link merkt sich die Sprache.
+- **Installieren und offline nutzen:** auf dem Handy im Browsermenü „Zum Startbildschirm hinzufügen“, am Computer „App installieren“.
+
+## Alle Sprachen mit Direktlink
+Ein Klick startet die App gleich in der jeweiligen Sprache (Adresse mit `?lang=<Code>`); dieselben Links entstehen beim Teilen in der App.
+
+**Deutsch und Mundarten**
+
+| Flagge | Sprache | Direkt starten |
 |---|---|---|
-| 1 | Hallo, ich bin dein Herz | 3 |
-| 2 | So bin ich gebaut | 4 |
-| 3 | Zwei Kreisläufe, ein Herz | 4 |
-| 4 | Mein Taktgeber (mit der Frage „Wie oft hab ich für dich geschlagen?“ und dem Herzrechner) | 4 |
-| 5 | Wenn ich aus dem Takt komme | 4 |
-| 6 | Herzen im Tierreich | 4 |
-| 7 | Wer hat mich entdeckt? | 4 |
-| 8 | Bossrunde: Herz-Profi | 5 |
+| <img src="flags/de.svg" alt="" width="28"> | Deutsch | [https://nosz.github.io/herzintelligenz/?lang=de](https://nosz.github.io/herzintelligenz/?lang=de) |
+| <img src="flags/at.svg" alt="" width="28"> | Österreichisch | [https://nosz.github.io/herzintelligenz/?lang=at](https://nosz.github.io/herzintelligenz/?lang=at) |
+| <img src="flags/ch.svg" alt="" width="28"> | Schweizerisch | [https://nosz.github.io/herzintelligenz/?lang=ch](https://nosz.github.io/herzintelligenz/?lang=ch) |
+| <img src="flags/swg.svg" alt="" width="28"> | Schwäbisch | [https://nosz.github.io/herzintelligenz/?lang=swg](https://nosz.github.io/herzintelligenz/?lang=swg) |
+| <img src="flags/bay.svg" alt="" width="28"> | Bayrisch | [https://nosz.github.io/herzintelligenz/?lang=bay](https://nosz.github.io/herzintelligenz/?lang=bay) |
+| <img src="flags/hes.svg" alt="" width="28"> | Hessisch | [https://nosz.github.io/herzintelligenz/?lang=hes](https://nosz.github.io/herzintelligenz/?lang=hes) |
+| <img src="flags/sax.svg" alt="" width="28"> | Sächsisch | [https://nosz.github.io/herzintelligenz/?lang=sax](https://nosz.github.io/herzintelligenz/?lang=sax) |
+| <img src="flags/nds.svg" alt="" width="28"> | Plattdeutsch | [https://nosz.github.io/herzintelligenz/?lang=nds](https://nosz.github.io/herzintelligenz/?lang=nds) |
+| <img src="flags/ber.svg" alt="" width="28"> | Berlinerisch | [https://nosz.github.io/herzintelligenz/?lang=ber](https://nosz.github.io/herzintelligenz/?lang=ber) |
 
-- **Kopfzeile:** „Herzintelligenz / Norbert Szpak“, Herzschläge-Zähler, aufklappbare Sprachwahl, Sprachwahl, Teilen, Hell/Dunkel (kein Knopf zum Entfernen von Herzi).
-- **Herzi:** kleines Pixel-Herz mit Augen, Wangen und Füßchen, das im Takt pocht. Es schaut ab und zu vorbei (rein dekorativ, nicht klickbar): läuft quer, schaut vom Rand, erzählt Herz-Fakten und Zuspruch, erzählt Witze mit Pointe, pocht „Bumm-bumm“, tanzt, klettert die Wand hoch, geht kopfüber an der Decke, schwebt mit Luftballon davon oder taucht mit Funken aus dem Nichts auf (Puff). Der Start ist immer Herzi mitten im Bild mit Herzchen, danach Begrüßung oder Namensfrage (drängender, höchstens sechsmal) und Lob. Herzi spricht immer in der eingestellten Menüsprache; beim Sprachwechsel meldet es sich gleich neu. Sprechblasen verdecken nie einen Kopf. Aus bei „Bewegung reduzieren“. Test mit Adresse `?lauf=quer|gucken|sagen|fakt|witz|herzschlag|tanz|puff|kletter|decke|ballon|hallo|name|gruss|lob|kuss`.
-- **Quiz mit interessanten Fragen:** Überraschendes über das Herz (Herzzeiten, Oktopus mit drei Herzen, Blauwal, Etruskerspitzmaus, Sinusknoten, Harvey, Ibn an-Nafīs), damit der Nutzer staunt und stolz auf sein Herz ist.
-- **Herzrechner** in der Lektion „Mein Takt“: Alter eintragen, Herzi sagt, wie oft es schon geschlagen hat (etwa 70 Schläge pro Minute).
-- **Sprache im Link:** Teilen, Link kopieren, WhatsApp, E-Mail und Urkunde teilen verwenden immer die Adresse mit der eingestellten Sprache, z. B. `https://nosz.github.io/herzintelligenz/?lang=it`; wer den Link öffnet, sieht die App gleich in dieser Sprache (hat Vorrang vor der gespeicherten Sprache). Die Adresse im Browser trägt ebenfalls immer `?lang=<Code>`. Codes: de, at, ch, swg, bay, hes, sax, nds, ber, en, fr, it, es, pt, nl, vls, sv, no, pl, cs, hr, hu, mo, uk, ru, el, tr, esar, ptbr, zh, ja, vi, bn; auch Kurzformen wie `pt-BR`, `es-AR`, `nl-BE`, `ro`, `nb` werden erkannt.
-- **Interessante Links** (Abschnittsname in jeder Sprache übersetzt): Karten mit Links zu Energietankstelle (https://nosz.github.io/energietankstelle), Challenge-App (https://nosz.github.io/challenge-app/), BabyLove (https://nosz.github.io/babylove) und Mutige Kinderherzen (https://www.mutige-kinderherzen.de/); dazu die Wikipedia-Quelle. **Alle Links zu anderen Seiten öffnen in einem eigenen Browser-Tab.**
-- **Impressum** ganz unten in jeder Ansicht, mit Link zu https://nosz.github.io/energietankstelle/impressum.html.
-- **Spielmechanik:** 10 Herzschläge je richtiger Antwort, 1 bis 3 Sterne je Lektion, 5 Ränge von „Herzchen“ bis „Herzintelligenz-Meister“, Konfetti, Hell- und Dunkelmodus.
-- **Urkunden:** je Lektion eine Herz-Urkunde mit den Quiz-Fragen und richtigen Antworten, zum Abschluss die Meisterurkunde (PNG speichern oder drucken). Sprache der Urkunde = Menüsprache. Unterschrieben „Herzi“.
-- **Teilen:** der größte, gefüllte Knopf auf Ergebnisseite, Urkunden-Seite (auch Meister), Urkunden-Übersicht und Lektionskarten; Text je Lektion mit Link zur App.
-- **Installieren-Knopf, PWA:** installierbar, läuft offline, Update-Hinweis. Dateien (alle ins Hauptverzeichnis): `index.html`, `manifest.webmanifest`, `sw.js`, `icon-192.png`, `icon-512.png`, `icon-maskable-512.png`, `favicon.png`, `apple-touch-icon.png`, `herzintelligenz_vorschau.jpg` und der Ordner `flags/` (`<Sprachcode>.svg`). Bei jeder neuen Version `VERSION` in `index.html` **und** `sw.js` gemeinsam erhöhen.
+**Europa**
 
-## Marke und Look
-Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa0`, `#2a0e45`) und Weiß, dazu ein Hauch Gold (`#ffc83d`). Herzi ist eine selbst gezeichnete Pixelgrafik (11 x 16). Das Symbol der Energietankstelle (lila Herz mit Zapfsäule) ist als SVG nachgezeichnet. Die Seite ist vom Auftraggeber Norbert Szpak genehmigt.
+| Flagge | Sprache | Direkt starten |
+|---|---|---|
+| <img src="flags/en.svg" alt="" width="28"> | English (Englisch) | [https://nosz.github.io/herzintelligenz/?lang=en](https://nosz.github.io/herzintelligenz/?lang=en) |
+| <img src="flags/fr.svg" alt="" width="28"> | Français (Französisch) | [https://nosz.github.io/herzintelligenz/?lang=fr](https://nosz.github.io/herzintelligenz/?lang=fr) |
+| <img src="flags/it.svg" alt="" width="28"> | Italiano (Italienisch) | [https://nosz.github.io/herzintelligenz/?lang=it](https://nosz.github.io/herzintelligenz/?lang=it) |
+| <img src="flags/es.svg" alt="" width="28"> | Español (Spanisch) | [https://nosz.github.io/herzintelligenz/?lang=es](https://nosz.github.io/herzintelligenz/?lang=es) |
+| <img src="flags/pt.svg" alt="" width="28"> | Português (Portugiesisch (Portugal)) | [https://nosz.github.io/herzintelligenz/?lang=pt](https://nosz.github.io/herzintelligenz/?lang=pt) |
+| <img src="flags/nl.svg" alt="" width="28"> | Nederlands (Niederländisch) | [https://nosz.github.io/herzintelligenz/?lang=nl](https://nosz.github.io/herzintelligenz/?lang=nl) |
+| <img src="flags/vls.svg" alt="" width="28"> | Vlaams (Belgisch (Flämisch)) | [https://nosz.github.io/herzintelligenz/?lang=vls](https://nosz.github.io/herzintelligenz/?lang=vls) |
+| <img src="flags/sv.svg" alt="" width="28"> | Svenska (Schwedisch) | [https://nosz.github.io/herzintelligenz/?lang=sv](https://nosz.github.io/herzintelligenz/?lang=sv) |
+| <img src="flags/no.svg" alt="" width="28"> | Norsk (Norwegisch) | [https://nosz.github.io/herzintelligenz/?lang=no](https://nosz.github.io/herzintelligenz/?lang=no) |
+| <img src="flags/pl.svg" alt="" width="28"> | Polski (Polnisch) | [https://nosz.github.io/herzintelligenz/?lang=pl](https://nosz.github.io/herzintelligenz/?lang=pl) |
+| <img src="flags/cs.svg" alt="" width="28"> | Čeština (Tschechisch) | [https://nosz.github.io/herzintelligenz/?lang=cs](https://nosz.github.io/herzintelligenz/?lang=cs) |
+| <img src="flags/hr.svg" alt="" width="28"> | Hrvatski (Kroatisch) | [https://nosz.github.io/herzintelligenz/?lang=hr](https://nosz.github.io/herzintelligenz/?lang=hr) |
+| <img src="flags/hu.svg" alt="" width="28"> | Magyar (Ungarisch) | [https://nosz.github.io/herzintelligenz/?lang=hu](https://nosz.github.io/herzintelligenz/?lang=hu) |
+| <img src="flags/mo.svg" alt="" width="28"> | Moldovenească (Moldawisch (Rumänisch)) | [https://nosz.github.io/herzintelligenz/?lang=mo](https://nosz.github.io/herzintelligenz/?lang=mo) |
+| <img src="flags/uk.svg" alt="" width="28"> | Українська (Ukrainisch) | [https://nosz.github.io/herzintelligenz/?lang=uk](https://nosz.github.io/herzintelligenz/?lang=uk) |
+| <img src="flags/ru.svg" alt="" width="28"> | Русский (Russisch) | [https://nosz.github.io/herzintelligenz/?lang=ru](https://nosz.github.io/herzintelligenz/?lang=ru) |
+| <img src="flags/el.svg" alt="" width="28"> | Ελληνικά (Griechisch) | [https://nosz.github.io/herzintelligenz/?lang=el](https://nosz.github.io/herzintelligenz/?lang=el) |
+| <img src="flags/tr.svg" alt="" width="28"> | Türkçe (Türkisch) | [https://nosz.github.io/herzintelligenz/?lang=tr](https://nosz.github.io/herzintelligenz/?lang=tr) |
 
-## Quellen
-- Wikipedia: Herz, https://de.wikipedia.org/wiki/Herz (abgerufen 20.10.2026); zum Weiterlesen: https://de.wikipedia.org/wiki/Herzzyklus
-- Die Witze und Sprüche von Herzi sind erfunden (Humor); Zahlen und Fakten stammen aus dem Wikipedia-Artikel.
+**Weltweit**
 
-## Bekannte Grenzen
-- Die App ersetzt keinen ärztlichen Rat (Hinweis steht in der App).
-- **Dialekte (Österreichisch, Schweizerisch, Schwäbisch, Bayrisch, Hessisch, Sächsisch, Plattdeutsch, Berlinerisch) und Italienisch sind liebevoll gemeint, keine Rechtschreibnorm; Muttersprachler sollten die Texte gegenlesen**, ebenso die englischen Texte.
-- Dialekte, Italienisch und alle weiteren Fremdsprachen sind nicht von Muttersprachlern geprüft. Die Vorschau beim Teilen (Bild und Titel) ist in allen Sprachen die deutsche, weil die Seite nur eine Datei ist. „Belgisch“ wurde als Flämisch, „Moldawisch“ als Rumänisch (Republik Moldau) umgesetzt.
-- Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
+| Flagge | Sprache | Direkt starten |
+|---|---|---|
+| <img src="flags/esar.svg" alt="" width="28"> | Español (Argentina) (Argentinisch (Spanisch)) | [https://nosz.github.io/herzintelligenz/?lang=esar](https://nosz.github.io/herzintelligenz/?lang=esar) |
+| <img src="flags/ptbr.svg" alt="" width="28"> | Português (Brasil) (Brasilianisch (Portugiesisch)) | [https://nosz.github.io/herzintelligenz/?lang=ptbr](https://nosz.github.io/herzintelligenz/?lang=ptbr) |
+| <img src="flags/zh.svg" alt="" width="28"> | 中文 (Chinesisch) | [https://nosz.github.io/herzintelligenz/?lang=zh](https://nosz.github.io/herzintelligenz/?lang=zh) |
+| <img src="flags/ja.svg" alt="" width="28"> | 日本語 (Japanisch) | [https://nosz.github.io/herzintelligenz/?lang=ja](https://nosz.github.io/herzintelligenz/?lang=ja) |
+| <img src="flags/vi.svg" alt="" width="28"> | Tiếng Việt (Vietnamesisch) | [https://nosz.github.io/herzintelligenz/?lang=vi](https://nosz.github.io/herzintelligenz/?lang=vi) |
+| <img src="flags/bn.svg" alt="" width="28"> | বাংলা (Bengalisch) | [https://nosz.github.io/herzintelligenz/?lang=bn](https://nosz.github.io/herzintelligenz/?lang=bn) |
 
-## Änderungen
-- 1.2.0 (20.10.2026): Flaggen als eigene SVG-Dateien im Ordner `flags` (aus flag-icons) statt in `index.html`, App-Name oben bricht auf dem Handy um.
-- 1.1.1 (20.10.2026): Sprachwahl auf dem Handy in einer Spalte, ohne seitliches Scrollen.
-- 1.1.0 (20.10.2026): **22 neue Sprachen** (insgesamt 33: Französisch, Spanisch, Argentinisch, Portugiesisch, Brasilianisch, Niederländisch, Flämisch, Schwedisch, Norwegisch, Polnisch, Tschechisch, Kroatisch, Ungarisch, Moldawisch, Ukrainisch, Russisch, Griechisch, Türkisch, Chinesisch, Japanisch, Vietnamesisch, Bengalisch), neue Sprachwahl mit Suchfeld und Gruppen, Herzrechner rechnet bei Japanisch und Chinesisch in 万 und 億.
-- Zusätzlich in 1.1.0: Sprachwahl mit Flaggen, Sprachlink `?lang=` beim Teilen und Öffnen, App-Name „Herzintelligenz“ in jeder Sprache übersetzt, Abschnitt „Interessante Links“ statt „Mehr von Norbert“.
-- 1.0.1 (20.10.2026): Mundart-Texte in der Oberfläche (Österreichisch, Berlinerisch, Sächsisch) näher am Dialekt, eigene Urkunden-Überschriften je Mundart, Herzrechner meldet falsche Eingaben in der eingestellten Sprache, kein Knopf mehr zum Entfernen von Herzi.
-- 1.0.0 (20.10.2026): erste Fassung mit 8 Lektionen, Herzi, 11 Sprachen, Herzrechner, Links, Impressum, Urkunden und Teilen.
+## Gut zu wissen
+- Die Fakten stammen aus dem Wikipedia-Artikel [Herz](https://de.wikipedia.org/wiki/Herz) (abgerufen 20.10.2026). Die App ersetzt keinen ärztlichen Rat. Herzi ist eine erfundene Figur, seine Witze sind erfunden.
+- Die Mundarten und Fremdsprachen sind liebevoll gemeint; Muttersprachler dürfen gern korrigieren.
+- Weitere Seiten von Norbert findest du in der App unter „Interessante Links“.
+
+**Von Norbert Szpak** · [Impressum](https://nosz.github.io/energietankstelle/impressum.html) · Version 1.2.0 (20.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
