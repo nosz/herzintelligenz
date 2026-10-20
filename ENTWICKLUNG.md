@@ -46,6 +46,7 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.2.5 (20.10.2026): Der doppelte Link „Created by Norbert“ ist aus der Fußzeile (bei Impressum) entfernt; er steht weiter nur neben der Version auf der Startseite.
 - 1.2.4 (20.10.2026): Der Impressum-Link im Fuß zeigt auf https://nosz.github.io/norbert-szpak/impressum.html (vorher energietankstelle).
 - 1.2.3 (20.10.2026): Im Fuß der Startseite steht neben der Version statt des Datums der Link „Created by Norbert“ (gleiches Design, öffnet https://nosz.github.io/norbert-szpak in einem neuen Tab).
 - 1.2.2 (20.10.2026): Fuß: statt „Norbert Szpak“ jetzt der Link „Created by Norbert“ (gleiches Design wie Impressum, öffnet https://nosz.github.io/norbert-szpak in einem neuen Tab). Die Kopfzeile zeigt weiter den Namen.
