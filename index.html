@@ -361,11 +361,16 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 .lang .langgrid button:hover{background:var(--pri-l)}
 .lang .langgrid button[aria-current="true"]{background:var(--pri-l);color:var(--pri-d)}
 .lang .langgrid .lk{display:inline-block;flex:none;min-width:38px;padding:1px 6px;border-radius:8px;background:var(--bg);border:1px solid var(--line);font-size:.68rem;letter-spacing:.05em;text-align:center;color:var(--mute)}
-.lang .langgrid .lname{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.lang .langgrid .lname{flex:1;min-width:0;display:flex;flex-direction:column;line-height:1.2}
+.lang .langgrid .lmain,.lang .langgrid .lsub{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lang .langgrid .lsub{font-size:.76rem;font-weight:600;color:var(--mute);margin-top:1px}
+.lang mark{background:rgba(255,196,0,.5);color:inherit;border-radius:3px;padding:0 1px;font-weight:800}
+.lang .langhead{display:flex;align-items:center;gap:10px}.lang .langhead .langq{flex:1;min-width:0;width:auto}
+.lang .langcnt{flex:none;font-size:.78rem;font-weight:800;color:var(--mute);font-variant-numeric:tabular-nums;white-space:nowrap}
 .lang .langgrid .ok{font-weight:800}
 .lang .langgrid button:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
 .lang .langnone{margin:18px 4px;text-align:center;color:var(--mute);font-weight:700}
-@media(max-width:560px){.topin .lang.langdd{order:0;flex:0 0 auto}.lang .langpanel{position:fixed;left:8px;right:8px;bottom:8px;top:auto;width:auto;max-height:80vh}.lang .langgrid{grid-template-columns:1fr}.lang .langgrid .lk{min-width:40px}.lang .langpanel{max-width:calc(100vw - 16px)}}
+@media(max-width:560px){.topin .lang.langdd{order:0;flex:0 0 auto}.lang .langpanel{position:fixed;left:8px;right:8px;top:8px;bottom:auto;width:auto;height:min(80vh,640px);height:min(80dvh,640px);max-height:none}.lang .langgrid{grid-template-columns:1fr}.lang .langgrid .lk{min-width:40px}.lang .langpanel{max-width:calc(100vw - 16px)}}
 .rechner{margin:20px 0 0;padding:18px 20px;border-radius:var(--r);border:2px solid var(--line);background:var(--card);box-shadow:var(--shadow)}
 .rechner h2{margin:0 0 8px;font-size:1.15rem}
 .rechner label{display:block;font-weight:700;margin:0 0 8px}
@@ -396,7 +401,7 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.0", STAND = "20.10.2026";
+const VERSION = "1.2.1", STAND = "20.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -21491,17 +21496,40 @@ function langMenu(lg){
   if(!langOpen) return;
   const inp = h("input", {type:"search", class:"langq", id:"langQ", placeholder:t("langSearch"), "aria-label":t("langSearch"), autocomplete:"off", spellcheck:"false", enterkeyhint:"search"});
   const none = h("p", {class:"langnone", role:"status", text:t("langNone")}); none.hidden = true;
+  /* Suchbegriff markieren: Treffer ohne Rücksicht auf Groß-/Kleinschreibung und Akzente, aber der Text bleibt original */
+  const hl = (text, toks) => { if(!toks.length) return [text]; let ns = ""; const map = [];
+    for(let k = 0; k < text.length; k++){ const p = normS(text[k]); for(let j = 0; j < p.length; j++){ map.push(k); } ns += p; }
+    const r = []; toks.forEach(q => { let i = ns.indexOf(q); while(i >= 0){ r.push([map[i], map[i + q.length - 1] + 1]); i = ns.indexOf(q, i + q.length); } });
+    if(!r.length) return [text]; r.sort((a, b) => a[0] - b[0]); const m = [r[0]];
+    for(const x of r.slice(1)){ const l = m[m.length - 1]; if(x[0] <= l[1]) l[1] = Math.max(l[1], x[1]); else m.push(x); }
+    const out = []; let p = 0; m.forEach(([a, e]) => { if(a > p) out.push(text.slice(p, a)); out.push(h("mark", {text:text.slice(a, e)})); p = e; }); if(p < text.length) out.push(text.slice(p)); return out; };
   const secs = LANG_GROUPS.map(g => ({ h3:h("h3", {text:t(g[0])}), items:g[1].map(c => { const x = langByCode(c), i = LANGS.indexOf(x);
-      const b = h("button", {type:"button", lang:x[3], "data-lang":x[0], "aria-current": i === li ? "true" : null, onclick:() => { li = i; langOpen = false; save(); render(true); }}, flagEl(x[0]), h("span", {class:"lname", text:x[2]}), h("span", {class:"lk", "aria-hidden":"true", text:x[1]}), i === li ? h("span", {class:"ok", "aria-hidden":"true"}, "✓") : null);
-      return {c, b, el:h("li", null, b), hay:normS([x[2], x[0], x[1], LANG_ALT[x[0]] || ""].join(" "))}; }) }));
+      const main = h("span", {class:"lmain", text:x[2]}), sub = h("span", {class:"lsub"}), key = h("span", {class:"lk", "aria-hidden":"true", text:x[1]}); sub.hidden = true;
+      const b = h("button", {type:"button", lang:x[3], "data-lang":x[0], "aria-current": i === li ? "true" : null, onclick:() => { li = i; langOpen = false; save(); render(true); }}, flagEl(x[0]), h("span", {class:"lname"}, main, sub), key, i === li ? h("span", {class:"ok", "aria-hidden":"true"}, "✓") : null);
+      return {c, b, x, main, sub, key, el:h("li", null, b), nm:normS(x[2]), cd:normS(x[1] + " " + x[0]), alt:(LANG_ALT[x[0]] || "").split(" ").filter(Boolean), pos:g[1].indexOf(c)}; }) }));
   const body = h("div", {class:"langbody"}, secs.map(s => h("section", {class:"langsec"}, s.h3, h("ul", {class:"langgrid"}, s.items.map(o => o.el)))), none);
-  const filt = () => { const q = normS(inp.value.trim()); let n = 0; secs.forEach((s, k) => { let v = 0; s.items.forEach(o => { const show = !q || o.hay.includes(q); o.el.hidden = !show; if(show) v++; }); body.children[k].hidden = v === 0; n += v; }); none.hidden = n > 0; };
+  const total = LANGS.length, cnt = h("span", {class:"langcnt", "aria-hidden":"true"}); cnt.hidden = true;
+  /* Treffer prüfen: jeder Suchbegriff muss in Name, Kürzel oder Beiname vorkommen; Rang: Name beginnt damit (0), Wortanfang im Namen (1), im Namen (2), Beiname beginnt damit (3), sonst (4) */
+  const rate = (o, toks) => { let worst = 0, aliasHit = null;
+    for(const q of toks){ let r = -1;
+      if(o.nm.startsWith(q) || o.cd.split(" ").includes(q)) r = 0; else if(o.nm.split(/[\s()\-]+/).some(w => w.startsWith(q))) r = 1; else if(o.nm.includes(q)) r = 2;
+      else { const a = o.alt.find(w => normS(w).startsWith(q)) || o.alt.find(w => normS(w).includes(q)); if(a){ r = normS(a).startsWith(q) ? 3 : 4; aliasHit = aliasHit || a; } else if(o.cd.includes(q)) r = 4; }
+      if(r < 0) return null; worst = Math.max(worst, r); }
+    return {r:worst, alias:aliasHit}; };
+  const filt = () => { const toks = normS(inp.value.trim()).split(/\s+/).filter(Boolean); let n = 0;
+    secs.forEach((s, k) => { const ul = body.children[k].querySelector("ul"); let hits = [];
+      s.items.forEach(o => { const m = toks.length ? rate(o, toks) : {r:0, alias:null}; o.el.hidden = !m; if(!m) return; hits.push([m.r, o.pos, o]);
+        o.main.replaceChildren(...hl(o.x[2], toks)); o.key.replaceChildren(...hl(o.x[1], toks));
+        const showAlias = toks.length && m.alias && !toks.every(q => o.nm.includes(q)); o.sub.hidden = !showAlias; if(showAlias) o.sub.replaceChildren(...hl(m.alias, toks)); });
+      hits.sort((a, b) => a[0] - b[0] || a[1] - b[1]); ul.append(...(toks.length ? hits.map(x => x[2].el) : s.items.map(o => o.el)));
+      body.children[k].hidden = hits.length === 0; n += hits.length; });
+    none.hidden = n > 0; cnt.hidden = !toks.length || n === 0; cnt.textContent = n + " / " + total; body.scrollTop = 0; const pn = $("#langList"); if(pn) pn.scrollTop = 0; };
   const shown = () => [...body.querySelectorAll("li:not([hidden]) button")];
   inp.addEventListener("input", filt);
-  inp.addEventListener("keydown", e => { if(e.key === "Enter"){ e.preventDefault(); const s = shown(); if(s.length) s[0].click(); } else if(e.key === "ArrowDown"){ e.preventDefault(); const s = shown(); if(s.length) s[0].focus(); } });
+  inp.addEventListener("keydown", e => { if(e.key === "Escape" && inp.value){ e.stopPropagation(); inp.value = ""; filt(); } else if(e.key === "Enter"){ e.preventDefault(); const s = shown(); if(s.length) s[0].click(); } else if(e.key === "ArrowDown"){ e.preventDefault(); const s = shown(); if(s.length) s[0].focus(); } });
   body.addEventListener("keydown", e => { const s = shown(), i = s.indexOf(document.activeElement); if(i < 0) return;
     if(e.key === "ArrowDown" || e.key === "ArrowRight"){ e.preventDefault(); s[Math.min(s.length - 1, i + 1)].focus(); } else if(e.key === "ArrowUp" || e.key === "ArrowLeft"){ e.preventDefault(); if(i === 0) inp.focus(); else s[i - 1].focus(); } });
-  lg.append(h("div", {class:"langpanel", id:"langList", role:"dialog", "aria-label":t("langMenu")}, h("div", {class:"langhead"}, inp), body));
+  lg.append(h("div", {class:"langpanel", id:"langList", role:"dialog", "aria-label":t("langMenu")}, h("div", {class:"langhead"}, inp, cnt), body));
 }
 document.addEventListener("keydown", e => { if(e.key === "Escape" && langOpen){ langOpen = false; langMenu($("#langs")); const b = $("#langBtn"); if(b) b.focus(); } });
 document.addEventListener("click", e => { if(langOpen && e.target.isConnected && !e.target.closest("#langs")){ langOpen = false; langMenu($("#langs")); } });
