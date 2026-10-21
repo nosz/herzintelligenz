@@ -35083,7 +35083,7 @@ function spruchBildSvg(x, gruss){
    + '<circle cx="540" cy="206" r="138" fill="#fdeaf4"/><circle cx="540" cy="206" r="138" fill="none" stroke="#f6d9ea" stroke-width="3"/>'
    + '<g transform="translate(468.5 102)" shape-rendering="crispEdges">' + herzi + '</g>'
    + '<text x="540" y="392" text-anchor="middle" font-size="' + ks + '" font-weight="800" letter-spacing="2" fill="#c2187f" ' + F + '>' + esc(kopf) + '</text>'
-   + (x[0] === "g" ? "" : '<text x="540" y="446" text-anchor="middle" font-size="30" font-weight="700" fill="#2a0e45" ' + F + '>' + esc(t("spruchF").replace(/^[^\p{L}\p{N}]+/u, "").trim()) + '</text>')   /* bei einem Fakt steht auch auf dem Bild "Wusstest du?" (wie auf der Karte) */
+   + (x[0] === "g" ? "" : '<text x="540" y="446" text-anchor="middle" font-size="26" font-weight="700" fill="#2a0e45" ' + F + '>' + esc(t("spruchF").replace(/^[^\p{L}\p{N}]+/u, "").trim()) + '</text>')   /* bei einem Fakt steht auch auf dem Bild "Wusstest du?" (wie auf der Karte) */
    + '<text x="540" y="560" text-anchor="middle" font-size="120" fill="#ffc800" font-family="Georgia, serif" opacity=".9" aria-hidden="true">“</text>'
    + lines
    + '<line x1="380" y1="' + (gruss ? 1050 : 1110) + '" x2="700" y2="' + (gruss ? 1050 : 1110) + '" stroke="#c2187f" stroke-width="4" stroke-linecap="round"/>'
