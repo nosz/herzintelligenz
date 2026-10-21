@@ -385,7 +385,10 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 .legal a{color:var(--mute);display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font-weight:700;text-decoration:underline}
 .legal a:hover{color:var(--pri-d)}.legal a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 .top .brand{min-width:0;flex:1 1 0}.top .brand>span:last-child{min-width:0;display:block}.top #bt{display:block;white-space:normal;overflow-wrap:anywhere;line-height:1.15}
-@media(max-width:560px){.top #bt{font-size:1rem}.top .brand small{font-size:.85rem}.topin{gap:6px;flex-wrap:nowrap}.topin .lang .langbtn{padding:6px 8px}.topin .theme{min-width:40px;width:40px}}
+@media(max-width:560px){.top #bt{font-size:1rem}.top .brand small{font-size:.85rem}.topin{gap:4px;flex-wrap:nowrap}.topin .lang .langbtn{padding:6px 6px}.topin .theme{min-width:40px;width:40px}}
+/* sehr schmale Handys: Titel behält Platz für "intelligenz" in einer Zeile; unter 340 Pixel bekommt der Titel eine eigene Zeile über den Knöpfen */
+@media(max-width:360px){.top #bt{font-size:.92rem}}
+@media(max-width:340px){.topin{flex-wrap:wrap}.top .brand{flex:1 1 100%}}
 </style>
 </head>
 <body>
@@ -404,7 +407,7 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.7", STAND = "20.10.2026";
+const VERSION = "1.2.8", STAND = "20.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -33368,6 +33371,12 @@ function render(keepScroll){
   else if(key !== lastKey){ focusMain(); }
   lastKey = key;
 }
+/* Titel in der Kopfzeile (nur dort, nirgends sonst; Wunsch des Auftraggebers): Bei zusammengeschriebenen Titeln (Herzintelligenz, Härzintelligänz, Hartintelligentie, Hjärtintelligens, Szívintelligencia …) steht immer ein Umbruch nach dem ersten Wortteil, auf jedem Bildschirm, und das zweite Wort beginnt groß: „Herz“ und darunter „Intelligenz“ (zwei Wörter). Der Titel an anderen Stellen (Tab, Urkunde, Teilen, Fuß) bleibt unverändert. */
+function titelSetzen(el, titel){
+  const m = titel.match(/^(Herz|Härz|Hart|Hjärt|Hjerte|Szív)(intelli\S*)$/i);
+  el.replaceChildren(); if(!m){ el.textContent = titel; return; }
+  const br = document.createElement("br"); br.className = "btbr"; el.append(m[1], br, m[2].charAt(0).toUpperCase() + m[2].slice(1));
+}
 /* Herzi-Symbol (das Pixel-Herz der Figur) für den Knopf in der Kopfzeile */
 function herziIkon(){
   const NS = "http://www.w3.org/2000/svg", s = document.createElementNS(NS, "svg");
@@ -33378,7 +33387,7 @@ function herziIkon(){
 function chrome(){
   document.documentElement.lang = LANGS[li][3];
   document.title = t("title");
-  $(".brand .dot").innerHTML = logoSvg(); $("#bt").textContent = t("title"); $("#bs").textContent = t("by"); $("#brand").setAttribute("aria-label", t("title") + " – " + t("over"));
+  $(".brand .dot").innerHTML = logoSvg(); titelSetzen($("#bt"), t("title")); $("#bs").textContent = t("by"); $("#brand").setAttribute("aria-label", t("title") + " – " + t("over"));
   $("#skip").textContent = t("skip"); $("#theme").setAttribute("aria-label", t("themeL")); $("#theme").setAttribute("title", t("themeL")); $("#share").setAttribute("aria-label", t("shT")); $("#share").setAttribute("title", t("shT")); $("#boost").setAttribute("aria-label", t("boostL")); $("#boost").setAttribute("title", t("boostL")); $("#boost").replaceChildren(herziIkon());
   const T = totals(); $("#coins").textContent = "💗 " + T.co;
   langMenu($("#langs"));
