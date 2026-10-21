@@ -408,7 +408,7 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.9", STAND = "20.10.2026";
+const VERSION = "1.2.10", STAND = "20.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -35066,12 +35066,12 @@ function spruchBildSvg(x, gruss){
   const kopf = spruchKopf(x), kern = spruchKern(x), boxTop = 480, boxH = gruss ? 540 : 600;
   let sz = 66, zl = [];
   for(; sz >= 28; sz -= 2){ zl = bildZeilen(kern, 860, sz); if(zl.length * sz * 1.34 <= boxH) break; }
-  let gz = 44; if(gruss) while(gz > 22 && bildBreite(gruss, gz * .95) > 860) gz -= 2;
+  let gz = 62; if(gruss) while(gz > 26 && bildBreite(gruss, gz * 1.05) > 880) gz -= 2;   /* Grußzeile groß, damit sie gut lesbar ist */
   const sig = t("spruchSign") || CT.sign[li]; let ss = 50; while(ss > 26 && bildBreite(sig, ss * .85) > 290) ss -= 2;   // Unterschrift "Dein Herzi" in Handschrift, passt in die Linie
   const lh = sz * 1.34, blockH = zl.length * lh, y0 = boxTop + (boxH - blockH) / 2 + sz * .95;
   const ks = Math.max(26, Math.min(46, Math.floor(860 / (kopf.length * .66))));
   const band = ["#c2187f","#2a0e45","#ffc800","#1b7a3d","#8e2bb5"].map((c, i) => '<rect x="' + (60 + i*192) + '" y="36" width="192" height="16" fill="' + c + '"/>').join("");
-  const conf = [[110,170,"#2a0e45"],[960,200,"#ffc800"],[90,520,"#ffc800"],[990,570,"#c2187f"],[150,900,"#1b7a3d"],[950,960,"#8e2bb5"],[120,1120,"#c2187f"],[980,1100,"#1b7a3d"]].map(a => herzchen(a[0] + 8, a[1] + 8, a[2], a[0] % 40 - 20)).join("");
+  const conf = [[110,170,"#2a0e45"],[960,200,"#ffc800"],[90,520,"#ffc800"],[990,570,"#c2187f"],[150,900,"#1b7a3d"],[950,960,"#8e2bb5"],[80,1215,"#c2187f"],[990,1070,"#1b7a3d"]].map(a => herzchen(a[0] + 8, a[1] + 8, a[2], a[0] % 40 - 20)).join("");
   const herzi = HERZ.map((row, y) => [...row].map((c, xx) => HERZC[c] ? '<rect x="' + (xx*13) + '" y="' + (y*13) + '" width="13.3" height="13.3" fill="' + HERZC[c] + '"/>' : "").join("")).join("");
   const lines = zl.map((s, i) => '<text x="540" y="' + (y0 + i * lh).toFixed(1) + '" text-anchor="middle" font-size="' + sz + '" font-weight="700" fill="#2a0e45" ' + F + '>' + esc(s) + '</text>').join("");
   return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" role="img" aria-label="' + esc(kopf + ": " + kern) + '">'
@@ -35087,7 +35087,7 @@ function spruchBildSvg(x, gruss){
    + '<text x="540" y="560" text-anchor="middle" font-size="120" fill="#ffc800" font-family="Georgia, serif" opacity=".9" aria-hidden="true">“</text>'
    + lines
    + '<line x1="380" y1="' + (gruss ? 1050 : 1110) + '" x2="700" y2="' + (gruss ? 1050 : 1110) + '" stroke="#c2187f" stroke-width="4" stroke-linecap="round"/>'
-   + (gruss ? '<text x="540" y="1130" text-anchor="middle" font-size="' + gz + '" fill="#c2187f" ' + UNTERSCHRIFT + '>' + esc(gruss) + '</text>' : "")
+   + (gruss ? '<text x="540" y="1142" text-anchor="middle" font-size="' + gz + '" fill="#c2187f" ' + UNTERSCHRIFT + '>' + esc(gruss) + '</text>' : "")
    + '<circle cx="540" cy="1234" r="40" fill="#ffffff" stroke="#c2187f" stroke-width="5"/><g transform="translate(524.2 1211.5) scale(2.6)">' + logoRects() + '</g>'
    + '<text x="1000" y="1240" text-anchor="end" font-size="' + ss + '" fill="#1d2b6b" transform="rotate(-4 850 1240)" ' + UNTERSCHRIFT + '>' + esc(sig) + '</text>'
    + '<line x1="700" y1="1254" x2="1000" y2="1254" stroke="#1f2026" stroke-width="1.5"/>'
