@@ -227,7 +227,7 @@ button.chip{font:inherit;font-weight:700;color:var(--ink);cursor:pointer;min-hei
 @media(max-width:560px){.brand small{font-size:.9rem}}
 .spruch{background:var(--card);border:2px solid var(--line);border-left:8px solid var(--pri);border-radius:var(--r);padding:12px 18px 16px;margin:18px 0 0;box-shadow:var(--shadow)}
 .sprow{display:flex;flex-wrap:wrap;gap:10px;align-items:stretch}.sprow .btn{flex:1 1 200px;justify-content:center;text-align:center}.spruchshare{display:inline-flex;align-items:center;gap:10px;white-space:normal;line-height:1.25;font-weight:800}.spruchshare .shico{display:inline-flex;flex:none}.spruchshare .shico svg{display:block}
-.spruch h2.sec{margin:4px 0 8px;font-size:1.1rem}.spruch .stag{margin:0;font-weight:800;color:var(--pri)}.spruch .stxt{margin:4px 0 12px;font-size:1.05rem;font-weight:600}
+.spruch h2.sec{margin:4px 0 8px;font-size:1.15rem}.spruch h2.spsagt{color:var(--pri);font-weight:800;display:flex;align-items:center;gap:8px}.spruch h2.spsagt svg{height:1.5em;width:auto;flex:none}.spruch .stag{margin:0;font-weight:800;color:var(--pri)}.spruch .stxt{margin:4px 0 12px;font-size:1.05rem;font-weight:600}
 .byline{background:var(--pri-l);color:var(--ink);text-align:center;font-weight:700;font-size:.85rem;padding:7px 12px;border-bottom:2px solid var(--line)}
 .stats{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:8px;margin-top:2px;grid-column:1/-1}
 .stat{background:var(--bg);border:2px solid var(--line);border-radius:14px;padding:8px 10px;min-width:0}
@@ -35037,7 +35037,8 @@ function linkeNeu(){
 let sprI = Math.floor(Math.random() * SPR.length);
 function spruchCard(){
   const x = SPR[sprI];
-  const c = h("section", {class:"spruch", "aria-labelledby":"spt"}, h("h2", {class:"sec", id:"spt", text:t("spruchT")}), h("p", {class:"stag", text:x[0] === "g" ? "💗 " + spruchKopf(x) : t("spruchF")}), h("p", {class:"stxt", text:x[0] === "g" ? spruchKern(x) : x[1][li]}));
+  /* Überschrift der Karte immer "💗 Herzi sagt:" in Herzis Farbe (Wunsch des Auftraggebers, statt "Herzi-Spruch und Fakt"); bei einem Fakt steht darunter noch "Wusstest du?" */
+  const c = h("section", {class:"spruch", "aria-labelledby":"spt"}, h("h2", {class:"sec spsagt", id:"spt"}, herziIkon(), spruchKopf(x)), x[0] === "g" ? null : h("p", {class:"stag", text:t("spruchF")}), h("p", {class:"stxt", text:x[0] === "g" ? spruchKern(x) : x[1][li]}));
   c.append(h("div", {class:"sprow"},
     h("button", {type:"button", class:"btn ghost", onclick:() => { let n = sprI; while(n === sprI) n = Math.floor(Math.random() * SPR.length); sprI = n; render(true); }}, "🔁 " + t("spruchB")),
     spruchShareButton(x)));
@@ -35082,6 +35083,7 @@ function spruchBildSvg(x, gruss){
    + '<circle cx="540" cy="206" r="138" fill="#fdeaf4"/><circle cx="540" cy="206" r="138" fill="none" stroke="#f6d9ea" stroke-width="3"/>'
    + '<g transform="translate(468.5 102)" shape-rendering="crispEdges">' + herzi + '</g>'
    + '<text x="540" y="392" text-anchor="middle" font-size="' + ks + '" font-weight="800" letter-spacing="2" fill="#c2187f" ' + F + '>' + esc(kopf) + '</text>'
+   + (x[0] === "g" ? "" : '<text x="540" y="446" text-anchor="middle" font-size="30" font-weight="700" fill="#2a0e45" ' + F + '>' + esc(t("spruchF").replace(/^[^\p{L}\p{N}]+/u, "").trim()) + '</text>')   /* bei einem Fakt steht auch auf dem Bild "Wusstest du?" (wie auf der Karte) */
    + '<text x="540" y="560" text-anchor="middle" font-size="120" fill="#ffc800" font-family="Georgia, serif" opacity=".9" aria-hidden="true">“</text>'
    + lines
    + '<line x1="380" y1="' + (gruss ? 1050 : 1110) + '" x2="700" y2="' + (gruss ? 1050 : 1110) + '" stroke="#c2187f" stroke-width="4" stroke-linecap="round"/>'
