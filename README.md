@@ -13,7 +13,7 @@ Kostenlos, ohne Anmeldung, läuft im Browser auf Handy, Tablet und Computer. Dei
 - **Herzi**, das kleine pochende Herz, schaut vorbei, erzählt Herz-Fakten und Witze, tanzt und klettert durchs Bild.
 - **Herzrechner:** Alter eintragen und erfahren, wie oft das Herz schon für dich geschlagen hat.
 - **Urkunden** für jede Lektion und eine Meisterurkunde, zum Speichern, Drucken und Teilen.
-- **33 Sprachen**, jeweils mit Flagge: Hochdeutsch, acht Mundarten und viele Weltsprachen. Der Link merkt sich die Sprache.
+- **34 Sprachen**, jeweils mit Flagge: Hochdeutsch, acht Mundarten und viele Weltsprachen. Der Link merkt sich die Sprache.
 - **Installieren und offline nutzen:** auf dem Handy im Browsermenü „Zum Startbildschirm hinzufügen“, am Computer „App installieren“.
 
 ## Alle Sprachen mit Direktlink
@@ -66,10 +66,11 @@ Ein Klick startet die App gleich in der jeweiligen Sprache (Adresse mit `?lang=<
 | <img src="flags/ja.svg" alt="" width="28"> | 日本語 (Japanisch) | [https://nosz.github.io/herzintelligenz/?lang=ja](https://nosz.github.io/herzintelligenz/?lang=ja) |
 | <img src="flags/vi.svg" alt="" width="28"> | Tiếng Việt (Vietnamesisch) | [https://nosz.github.io/herzintelligenz/?lang=vi](https://nosz.github.io/herzintelligenz/?lang=vi) |
 | <img src="flags/bn.svg" alt="" width="28"> | বাংলা (Bengalisch) | [https://nosz.github.io/herzintelligenz/?lang=bn](https://nosz.github.io/herzintelligenz/?lang=bn) |
+| <img src="flags/kk.svg" alt="" width="28"> | Қазақша (Kasachisch) | [https://nosz.github.io/herzintelligenz/?lang=kk](https://nosz.github.io/herzintelligenz/?lang=kk) |
 
 ## Gut zu wissen
 - Die Fakten stammen aus dem Wikipedia-Artikel [Herz](https://de.wikipedia.org/wiki/Herz) (abgerufen 20.10.2026). Die App ersetzt keinen ärztlichen Rat. Herzi ist eine erfundene Figur, seine Witze sind erfunden.
 - Die Mundarten und Fremdsprachen sind liebevoll gemeint; Muttersprachler dürfen gern korrigieren.
 - Weitere Seiten von Norbert findest du in der App unter „Interessante Links“.
 
-**Von Norbert Szpak** · [Impressum](https://nosz.github.io/norbert-szpak/impressum.html) · Version 1.2.10 (22.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
+**Von Norbert Szpak** · [Impressum](https://nosz.github.io/norbert-szpak/impressum.html) · Version 1.2.11 (22.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)

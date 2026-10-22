@@ -1,7 +1,7 @@
 {
   "name": "Herzintelligenz – Dein Herz erklärt sich selbst",
   "short_name": "Herzintelligenz",
-  "description": "Herzwissen in 8 kleinen Lektionen mit Herzi, deinem besten Freund: Quiz, Humor und Urkunden. In 33 Sprachen, von Deutsch und Mundarten bis Japanisch und Bengalisch. Läuft auch offline.",
+  "description": "Herzwissen in 8 kleinen Lektionen mit Herzi, deinem besten Freund: Quiz, Humor und Urkunden. In 34 Sprachen, von Deutsch und Mundarten bis Japanisch und Bengalisch. Läuft auch offline.",
   "id": "/herzintelligenz/",
   "start_url": "./",
   "scope": "./",
