@@ -397,10 +397,25 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 .fcredit .fver{margin:14px 0 0}
 a.credit{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 28px;border-radius:999px;border:2px solid #fff;background:linear-gradient(135deg,var(--pri-d) 0%,var(--pri) 100%);color:#fff;font-weight:800;font-size:1.08rem;letter-spacing:.2px;text-decoration:none;white-space:nowrap;max-width:100%;box-shadow:0 0 0 3px var(--gold),0 8px 22px rgba(0,0,0,.3);transition:transform .15s,filter .15s}
 @media(max-width:420px){a.credit{font-size:1rem;padding:12px 18px;gap:8px}}
+a.credit{gap:14px;min-height:64px;padding:10px 24px}
+a.credit .cr-tx{display:flex;flex-direction:column;align-items:flex-start;line-height:1.25;text-align:left}
+a.credit .cr-t{font-weight:800;font-size:1.08rem}
+a.credit .cr-u{font-weight:600;font-size:.8rem;text-decoration:underline;text-underline-offset:3px;opacity:.95}
+a.credit .cr-ic,a.credit .cr-ex{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);flex:none}
+a.credit:hover .cr-ex{background:rgba(255,255,255,.35)}
+@media(max-width:420px){a.credit{gap:10px;padding:10px 14px}a.credit .cr-t{font-size:1rem}a.credit .cr-u{font-size:.76rem}a.credit .cr-ic,a.credit .cr-ex{width:32px;height:32px}}
 a.credit .cr-st{color:var(--gold);font-size:1.2rem;line-height:1}
 a.credit .cr-ar{font-size:1.15rem;line-height:1}
 a.credit:hover{filter:brightness(1.12);transform:translateY(-2px)}
 a.credit:focus-visible{outline:3px solid #fff;outline-offset:4px;box-shadow:0 0 0 6px var(--pri-d)}
+.btnsave{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:10px 26px;font-weight:800;font-size:1.05rem;letter-spacing:.2px;border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.18),0 0 0 3px var(--gold)}
+.btnsave .saveic{display:inline-flex}
+.btnsave:hover{filter:brightness(1.08)}
+.btnsave{transition:background .2s,box-shadow .2s,opacity .2s}
+.btnsave:disabled{opacity:.5;cursor:not-allowed;box-shadow:none;filter:grayscale(.35)}
+.btnsave.ready{animation:savepulse 1.6s ease-in-out infinite}
+.btnsave.saved{background:var(--ok);border-color:var(--ok);color:#fff;box-shadow:0 4px 0 rgba(0,0,0,.18)}
+@keyframes savepulse{0%,100%{box-shadow:0 4px 0 rgba(0,0,0,.18),0 0 0 3px var(--gold)}50%{box-shadow:0 4px 0 rgba(0,0,0,.18),0 0 0 8px rgba(255,200,61,.55)}}
 @media print{.fcredit{display:none}}
 </style>
 </head>
@@ -420,7 +435,7 @@ a.credit:focus-visible{outline:3px solid #fff;outline-offset:4px;box-shadow:0 0 
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.13", STAND = "23.10.2026";
+const VERSION = "1.2.14", STAND = "23.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -465,7 +480,7 @@ S: {
  nameQ: "Wie darf Herzi dich nennen?",
  nameSub: "Für Begrüßung, Quiz und Urkunde. Dein Name bleibt auf diesem Gerät.",
  nameP2: "Dein Name oder Kosename",
- nameOk: "Das bin ich",
+ nameOk: "Speichern", nameSaved: "Gespeichert",
  nameSkip: "Lieber anonym bleiben",
  nameChange: "Name ändern",
  nameAdd: "Name eintragen",
@@ -1507,7 +1522,7 @@ S: {
  nameQ: "Wie derf Herzi di nennen?",
  nameSub: "Für Begrüßung, Quiz und Urkunde. Dein Name bleibt auf dem Gerät, versprochen.",
  nameP2: "Dein Name oder a Kosename",
- nameOk: "Des bin ich",
+ nameOk: "Speichern", nameSaved: "Gespeichert",
  nameSkip: "Liaber anonym bleiben",
  nameChange: "Name umändern",
  nameAdd: "Name eintragen, bitte",
@@ -2549,7 +2564,7 @@ S: {
  nameQ: "Wie dörf Härzli dir säge?",
  nameSub: "Für d Begrüessig, s Quiz und d Urkunde. Din Name blibt uf dem Gerät.",
  nameP2: "Din Name oder Chosename",
- nameOk: "Das bin ich",
+ nameOk: "Speichere", nameSaved: "Gspeichert",
  nameSkip: "Lieber anonym blibe",
  nameChange: "Name ändere",
  nameAdd: "Name iitrage",
@@ -3591,7 +3606,7 @@ S: {
  nameQ: "Wie derf Herzi di nenna?",
  nameSub: "Für d Begrüßung, s Quiz ond d Urkonde. Dei Name bleibt uff dem Gerät.",
  nameP2: "Dei Name oder dei Kosename",
- nameOk: "Des bin i",
+ nameOk: "Speichere", nameSaved: "Gspeichert",
  nameSkip: "Liaber anonym bleiba",
  nameChange: "Name ändra",
  nameAdd: "Name eitraga",
@@ -4633,7 +4648,7 @@ S: {
  nameQ: "Wia derf Herzi di nenna?",
  nameSub: "Für de Begrüßung, as Quiz und de Urkunde. Dei Name bleibt auf dem Gerät do.",
  nameP2: "Dei Name oder dei Kosename",
- nameOk: "Des bin i",
+ nameOk: "Speichern", nameSaved: "Gspeichert",
  nameSkip: "Liaba anonym bleibn",
  nameChange: "Namen ändern",
  nameAdd: "Namen eintragn",
@@ -5675,7 +5690,7 @@ S: {
  nameQ: "Wie derf Herzi dich nenne?",
  nameSub: "Für die Begrüßung, des Quiz un die Urkunde. Dei Name bleibt uff dem Gerät.",
  nameP2: "Dei Name odder Kosename",
- nameOk: "Des bin isch",
+ nameOk: "Speichern", nameSaved: "Gespeichert",
  nameSkip: "Liewer anonym bleiwe",
  nameChange: "Name ännern",
  nameAdd: "Name eintraache",
@@ -6717,7 +6732,7 @@ S: {
  nameQ: "Wie darf Herzi dich nenn?",
  nameSub: "Fier de Begrießung, s Quiz un de Urkunde. Dein Name bleibt uff diesem Gerät.",
  nameP2: "Dein Name oder Gosename",
- nameOk: "Das bin ich, nu",
+ nameOk: "Speichern", nameSaved: "Gespeichert",
  nameSkip: "Lieber anonym bleibn",
  nameChange: "Name ännern",
  nameAdd: "Name eintragn",
@@ -7759,7 +7774,7 @@ S: {
  nameQ: "Woans dröff Herzi di nömen?",
  nameSub: "För Begröten, Quiz un Urkunn. Dien Naam blifft op dit Gerät.",
  nameP2: "Dien Naam oder Kosenaam",
- nameOk: "Dat bün ik",
+ nameOk: "Spiekern", nameSaved: "Spiekert",
  nameSkip: "Leever anonym blieven",
  nameChange: "Naam ännern",
  nameAdd: "Naam indragen",
@@ -8801,7 +8816,7 @@ S: {
  nameQ: "Wie soll Herzi dir nennen?",
  nameSub: "Für Begrüßung, Quiz und Urkunde. Dein Name bleibt uff diesem Jerät.",
  nameP2: "Dein Name oder dein Kosename, wie et dir jefällt",
- nameOk: "Dit bin ick",
+ nameOk: "Speichern", nameSaved: "Gespeichert",
  nameSkip: "Ick bleib lieber anonym",
  nameChange: "Name neu machen",
  nameAdd: "Name rinschreiben",
@@ -9843,7 +9858,7 @@ S: {
  nameQ: "What should Herzi call you?",
  nameSub: "For greetings, quizzes and your certificate. Your name stays on this device.",
  nameP2: "Your name or a nickname",
- nameOk: "That's me",
+ nameOk: "Save", nameSaved: "Saved",
  nameSkip: "I'd rather stay anonymous",
  nameChange: "Change name",
  nameAdd: "Add your name",
@@ -10885,7 +10900,7 @@ S: {
  nameQ: "Comment Petit Cœur peut-il t'appeler ?",
  nameSub: "Pour l'accueil, le quiz et le diplôme. Ton nom reste sur cet appareil.",
  nameP2: "Ton prénom ou un petit surnom",
- nameOk: "C'est moi",
+ nameOk: "Enregistrer", nameSaved: "Enregistré",
  nameSkip: "Je préfère rester anonyme",
  nameChange: "Changer de nom",
  nameAdd: "Entrer ton nom",
@@ -11927,7 +11942,7 @@ S: {
  nameQ: "Come deve chiamarti Cuoricino?",
  nameSub: "Per il saluto, il quiz e l'attestato. Il tuo nome resta su questo dispositivo.",
  nameP2: "Il tuo nome o soprannome",
- nameOk: "Sono io",
+ nameOk: "Salva", nameSaved: "Salvato",
  nameSkip: "Preferisco restare anonimo",
  nameChange: "Cambia nome",
  nameAdd: "Scrivi il nome",
@@ -12969,7 +12984,7 @@ S: {
  nameQ: "¿Cómo te llama Corazoncito?",
  nameSub: "Para el saludo, el quiz y el diploma. Tu nombre se queda en este dispositivo.",
  nameP2: "Tu nombre o un apodo cariñoso",
- nameOk: "Ese soy yo",
+ nameOk: "Guardar", nameSaved: "Guardado",
  nameSkip: "Prefiero seguir en el anonimato",
  nameChange: "Cambiar nombre",
  nameAdd: "Escribir nombre",
@@ -14011,7 +14026,7 @@ S: {
  nameQ: "Como é que o Coraçãozinho te pode chamar?",
  nameSub: "Para a saudação, o quiz e o certificado. O teu nome fica só neste dispositivo.",
  nameP2: "O teu nome ou alcunha",
- nameOk: "Sou eu",
+ nameOk: "Guardar", nameSaved: "Guardado",
  nameSkip: "Prefiro não dizer",
  nameChange: "Mudar nome",
  nameAdd: "Escrever nome",
@@ -15053,7 +15068,7 @@ S: {
  nameQ: "Hoe mag Hartje jou noemen?",
  nameSub: "Voor de begroeting, de quiz en het certificaat. Je naam blijft op dit apparaat.",
  nameP2: "Je naam of koosnaam",
- nameOk: "Dat ben ik",
+ nameOk: "Opslaan", nameSaved: "Opgeslagen",
  nameSkip: "Liever anoniem blijven",
  nameChange: "Naam wijzigen",
  nameAdd: "Naam invullen",
@@ -16095,7 +16110,7 @@ S: {
  nameQ: "Hoe mag Hertje je noemen?",
  nameSub: "Voor de begroeting, de quiz en het diploma. Je naam blijft op dit toestel.",
  nameP2: "Je naam of een bijnaam",
- nameOk: "Dat ben ik",
+ nameOk: "Opslaan", nameSaved: "Opgeslagen",
  nameSkip: "Liever anoniem blijven",
  nameChange: "Naam wijzigen",
  nameAdd: "Naam invullen",
@@ -17137,7 +17152,7 @@ S: {
  nameQ: "Vad får Lilla Hjärtat kalla dig?",
  nameSub: "För hälsning, quiz och diplom. Ditt namn stannar på den här enheten.",
  nameP2: "Ditt namn eller smeknamn",
- nameOk: "Det är jag",
+ nameOk: "Spara", nameSaved: "Sparat",
  nameSkip: "Jag vill hellre vara anonym",
  nameChange: "Byt namn",
  nameAdd: "Skriv in namn",
@@ -18179,7 +18194,7 @@ S: {
  nameQ: "Hva skal Lille Hjerte kalle deg?",
  nameSub: "Til hilsen, quiz og diplom. Navnet ditt blir på denne enheten.",
  nameP2: "Navnet ditt eller kosenavnet ditt",
- nameOk: "Det er meg",
+ nameOk: "Lagre", nameSaved: "Lagret",
  nameSkip: "Jeg vil heller være anonym",
  nameChange: "Endre navn",
  nameAdd: "Skriv inn navn",
@@ -19221,7 +19236,7 @@ S: {
  nameQ: "Jak Serduszko ma się do ciebie zwracać?",
  nameSub: "Do powitania, quizu i dyplomu. Twoje imię zostaje na tym urządzeniu.",
  nameP2: "Twoje imię lub przezwisko",
- nameOk: "To ja",
+ nameOk: "Zapisz", nameSaved: "Zapisano",
  nameSkip: "Wolę zostać incognito",
  nameChange: "Zmień imię",
  nameAdd: "Wpisz imię",
@@ -20263,7 +20278,7 @@ S: {
  nameQ: "Jak ti má Srdíčko říkat?",
  nameSub: "Pro uvítání, kvíz a certifikát. Tvoje jméno zůstane jen v tomto zařízení.",
  nameP2: "Tvoje jméno nebo přezdívka",
- nameOk: "To jsem já",
+ nameOk: "Uložit", nameSaved: "Uloženo",
  nameSkip: "Radši zůstanu anonymní",
  nameChange: "Změnit jméno",
  nameAdd: "Zadat jméno",
@@ -21305,7 +21320,7 @@ S: {
  nameQ: "Kako te smije zvati Srčeko?",
  nameSub: "Za pozdrav, kviz i diplomu. Tvoje ime ostaje na ovom uređaju.",
  nameP2: "Tvoje ime ili nadimak",
- nameOk: "To sam ja",
+ nameOk: "Spremi", nameSaved: "Spremljeno",
  nameSkip: "Radije bez imena",
  nameChange: "Promijeni ime",
  nameAdd: "Upiši ime",
@@ -22347,7 +22362,7 @@ S: {
  nameQ: "Minek szólíthat Szívecske?",
  nameSub: "Az üdvözléshez, a kvízhez és az oklevélhez. A neved ezen az eszközön marad.",
  nameP2: "A neved vagy a beceneved",
- nameOk: "Ez vagyok én",
+ nameOk: "Mentés", nameSaved: "Mentve",
  nameSkip: "Inkább névtelen maradok",
  nameChange: "Név módosítása",
  nameAdd: "Név megadása",
@@ -23389,7 +23404,7 @@ S: {
  nameQ: "Cum să-ți spună Inimioara?",
  nameSub: "Pentru salut, quiz și diplomă. Numele tău rămâne doar pe acest dispozitiv.",
  nameP2: "Numele sau o poreclă drăgălașă",
- nameOk: "Eu sunt",
+ nameOk: "Salvează", nameSaved: "Salvat",
  nameSkip: "Prefer să rămân anonim",
  nameChange: "Schimbă numele",
  nameAdd: "Scrie numele",
@@ -24431,7 +24446,7 @@ S: {
  nameQ: "Як Серденьку тебе називати?",
  nameSub: "Для привітання, вікторини та грамоти. Твоє ім’я залишається на цьому пристрої.",
  nameP2: "Твоє ім’я або пестливе прізвисько",
- nameOk: "Це я",
+ nameOk: "Зберегти", nameSaved: "Збережено",
  nameSkip: "Краще залишуся анонімом",
  nameChange: "Змінити ім’я",
  nameAdd: "Вписати ім’я",
@@ -25473,7 +25488,7 @@ S: {
  nameQ: "Как Сердечку тебя называть?",
  nameSub: "Для приветствия, викторины и грамоты. Твоё имя остаётся на этом устройстве.",
  nameP2: "Твоё имя или ласковое прозвище",
- nameOk: "Это я",
+ nameOk: "Сохранить", nameSaved: "Сохранено",
  nameSkip: "Лучше остаться инкогнито",
  nameChange: "Сменить имя",
  nameAdd: "Ввести имя",
@@ -26515,7 +26530,7 @@ S: {
  nameQ: "Πώς να σε φωνάζει η Καρδούλα;",
  nameSub: "Για χαιρετισμούς, κουίζ και δίπλωμα. Το όνομά σου μένει σε αυτή τη συσκευή.",
  nameP2: "Το όνομά σου ή ένα χαϊδευτικό",
- nameOk: "Αυτό είναι το όνομά μου",
+ nameOk: "Αποθήκευση", nameSaved: "Αποθηκεύτηκε",
  nameSkip: "Προτιμώ την ανωνυμία",
  nameChange: "Αλλαγή ονόματος",
  nameAdd: "Πρόσθεσε όνομα",
@@ -27557,7 +27572,7 @@ S: {
  nameQ: "Kalpçik sana nasıl seslensin?",
  nameSub: "Karşılama, quiz ve belge için. Adın bu cihazda kalır.",
  nameP2: "Adın ya da sevgi sözcüğün",
- nameOk: "İşte bu benim",
+ nameOk: "Kaydet", nameSaved: "Kaydedildi",
  nameSkip: "Anonim kalayım",
  nameChange: "Adı değiştir",
  nameAdd: "Adını yaz",
@@ -28599,7 +28614,7 @@ S: {
  nameQ: "¿Cómo te puede decir Corazoncito?",
  nameSub: "Para el saludo, el quiz y el diploma. Tu nombre queda solo en este dispositivo.",
  nameP2: "Tu nombre o un apodo cariñoso",
- nameOk: "Ese soy yo",
+ nameOk: "Guardar", nameSaved: "Guardado",
  nameSkip: "Prefiero quedar anónimo",
  nameChange: "Cambiar nombre",
  nameAdd: "Poner nombre",
@@ -29641,7 +29656,7 @@ S: {
  nameQ: "Como o Coraçãozinho pode te chamar?",
  nameSub: "Para a saudação, o quiz e o certificado. Seu nome fica só neste aparelho.",
  nameP2: "Seu nome ou apelido",
- nameOk: "Sou eu mesmo",
+ nameOk: "Salvar", nameSaved: "Salvo",
  nameSkip: "Prefiro ficar anônimo",
  nameChange: "Mudar nome",
  nameAdd: "Colocar nome",
@@ -30683,7 +30698,7 @@ S: {
  nameQ: "小心心该怎么称呼你？",
  nameSub: "用于问候、测验和证书。你的名字只保存在这台设备上。",
  nameP2: "你的名字或昵称",
- nameOk: "就是我",
+ nameOk: "保存", nameSaved: "已保存",
  nameSkip: "还是匿名吧",
  nameChange: "改名字",
  nameAdd: "填写名字",
@@ -31725,7 +31740,7 @@ S: {
  nameQ: "ハートちゃんは、きみを何と呼べばいい？",
  nameSub: "あいさつ、クイズ、認定証に使います。名前はこの端末の中にだけ保存されます。",
  nameP2: "名前またはニックネーム",
- nameOk: "これが私です",
+ nameOk: "保存", nameSaved: "保存しました",
  nameSkip: "匿名のままにする",
  nameChange: "名前を変更",
  nameAdd: "名前を入力",
@@ -32767,7 +32782,7 @@ S: {
  nameQ: "Tim Bé gọi bạn là gì nhỉ?",
  nameSub: "Dùng để chào hỏi, đố vui và ghi trên chứng nhận. Tên của bạn chỉ lưu trên thiết bị này.",
  nameP2: "Tên hoặc biệt danh của bạn",
- nameOk: "Là mình đó",
+ nameOk: "Lưu", nameSaved: "Đã lưu",
  nameSkip: "Mình muốn giấu tên",
  nameChange: "Đổi tên",
  nameAdd: "Nhập tên",
@@ -33809,7 +33824,7 @@ S: {
  nameQ: "ছোট্ট হৃদয় তোমাকে কী নামে ডাকবে?",
  nameSub: "অভিবাদন, কুইজ আর সনদের জন্য। তোমার নাম শুধু এই ডিভাইসেই থাকবে।",
  nameP2: "তোমার নাম বা ডাকনাম",
- nameOk: "এটাই আমি",
+ nameOk: "সংরক্ষণ করুন", nameSaved: "সংরক্ষিত",
  nameSkip: "নাম গোপনই থাকুক",
  nameChange: "নাম বদলাও",
  nameAdd: "নাম লেখো",
@@ -34851,7 +34866,7 @@ S: {
  nameQ: "Herzi саған қалай атасын?",
  nameSub: "Сәлемдесу, викториналар және сертификатың үшін. Атың осы құрылғыда ғана қалады.",
  nameP2: "Атың немесе лақап атың",
- nameOk: "Бұл мен",
+ nameOk: "Сақтау", nameSaved: "Сақталды",
  nameSkip: "Анонимдігімді сақтағым келеді",
  nameChange: "Атты өзгерту",
  nameAdd: "Атыңды қос",
@@ -35960,13 +35975,17 @@ h("div", {class:"stats", role:"list"},
       LESSONS.some(earned) ? h("button", {type:"button", class:"namebtn", onclick:() => { const c = $("#ch"); if(c){ const rm = matchMedia("(prefers-reduced-motion: reduce)").matches; c.scrollIntoView({behavior: rm ? "auto" : "smooth", block:"start"}); } }}, h("span", {"aria-hidden":"true"}, "🏅"), h("span", null, h("span", {class:"bpre"}, t("certBtnPre")), t("certBtnMain"))) : null)));
   if((!hasName() && !ach.skip) || editName){
     const inp = h("input", {id:"nmq", type:"text", maxlength:"40", autocomplete:"given-name", placeholder:t("nameP2"), value:nm});
-    const done = v => { nm = v.trim().slice(0, 40); editName = false; ach.skip = !nm; save(); render(true); };
+    const done = v => { nm = v.trim().slice(0, 40); editName = false; ach.skip = !nm; save(); render(true); if(nm) snack(t("nameSaved") + ": " + fname(), null, null, 2600); };
     const form = h("form", {class:"nameq", "aria-labelledby":"nq"},
       h("label", {for:"nmq", id:"nq", text:"👋 " + t("nameQ")}), h("small", {text:t("nameSub")}), inp,
       h("div", {class:"row", style:"justify-content:flex-start;align-items:center;margin-top:8px;gap:6px 14px"},
-        h("button", {type:"submit", class:"btn"}, t("nameOk")),
+        h("button", {type:"submit", class:"btn btnsave"}, saveIcon(), h("span", {text:t("nameOk")})),
         h("button", {type:"button", class:"btn ghost", onclick:() => { editName = false; ach.skip = true; if(!hasName()) nm = ""; save(); render(true); }}, t("nameSkip"))));
     form.onsubmit = e => { e.preventDefault(); done(inp.value); };
+    /* Speichern-Knopf reagiert auf den Text im Feld: leer = grau (nichts zu speichern), geaendert = aktiv, goldener Ring pulsiert, unveraendert und gespeichert = gruen mit "Gespeichert" und Haken (Klick schliesst das Feld) */
+    const sb = form.querySelector(".btnsave"), sbt = sb.lastElementChild;
+    const updSave = () => { const v = inp.value.trim().slice(0, 40), saved = hasName() && v === nm.trim(), ready = v !== "" && !saved; sb.disabled = v === ""; sb.classList.toggle("ready", ready); sb.classList.toggle("saved", saved); sbt.textContent = saved ? t("nameSaved") + " \u2713" : t("nameOk"); };
+    inp.addEventListener("input", updSave); updSave();
     m.append(form);
     if(focusName){   // nur nach Klick auf Name aendern: Formular in den sichtbaren Bereich holen und Eingabefeld aktivieren
       focusName = false;
@@ -36504,6 +36523,11 @@ function herziIkon(){
   HERZ.forEach((row, y) => [...row].forEach((c, x) => { if(HERZC[c]){ const r = document.createElementNS(NS, "rect"); r.setAttribute("x", x); r.setAttribute("y", y); r.setAttribute("width", 1); r.setAttribute("height", 1); r.setAttribute("fill", HERZC[c]); s.appendChild(r); } }));
   return s;
 }
+/* Speichern-Knopf (Name): Diskettensymbol vor dem Text, damit klar ist, dass hier gespeichert wird */
+function saveIcon(){ const s = document.createElement("span"); s.className = "saveic"; s.setAttribute("aria-hidden", "true"); s.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" focusable="false" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>'; return s; }
+/* Symbole des Autoren-Knopfs: Kettenglied (Link) und Pfeil aus dem Kasten (externe Seite, oeffnet in neuem Tab) */
+const CRED_ICO = {link:'<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>', ext:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/>'};
+function credIcon(k, cls){ const s = document.createElement("span"); s.className = cls; s.setAttribute("aria-hidden", "true"); s.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" focusable="false" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' + CRED_ICO[k] + '</svg>'; return s; }
 function chrome(){
   document.documentElement.lang = LANGS[li][3];
   document.title = t("title");
@@ -36518,7 +36542,7 @@ function chrome(){
       h("ul", {class:"srclist"}, sl.src.map(s => h("li", null, h("a", {href:s[1], rel:"noopener"}, s[0][li]))))) : null,
     view.v !== "home" ? h("div", {class:"fhome"}, h("button", {type:"button", class:"btn ghost", onclick:() => go("home")}, (() => { const s = h("span", {"aria-hidden":"true"}); s.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-6h4v6"/></svg>'; return s; })(), h("span", {text:t("toHome")}))) : null,
     view.v === "home" ? h("div", {class:"fcard"}, h("span", {class:"fic", "aria-hidden":"true"}, "ℹ️"), h("div", null, h("p", {class:"fdisc", text:t("disc")}), h("p", {class:"ftrans", text:t("trans")}))) : null,
-    view.v === "home" ? h("div", {class:"fcredit"}, h("p", {class:"fver"}, h("span", {text:t("ver") + " " + VERSION})), h("a", {class:"credit", href:"https://nosz.github.io/norbert-szpak/", target:"_blank", rel:"noopener noreferrer"}, h("span", {class:"cr-st", "aria-hidden":"true"}, "✦"), h("span", {text:"Website Design by Norbert"}), h("span", {class:"cr-ar", "aria-hidden":"true"}, "↗"))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
+    view.v === "home" ? h("div", {class:"fcredit"}, h("p", {class:"fver"}, h("span", {text:t("ver") + " " + VERSION})), h("a", {class:"credit", href:"https://nosz.github.io/norbert-szpak/", target:"_blank", rel:"noopener noreferrer", "aria-label":"Website Design by Norbert, nosz.github.io/norbert-szpak"}, credIcon("link", "cr-ic"), h("span", {class:"cr-tx"}, h("span", {class:"cr-t", text:"Website Design by Norbert"}), h("span", {class:"cr-u", text:"nosz.github.io/norbert-szpak"})), credIcon("ext", "cr-ex"))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
 }
 $("#brand").onclick = () => {
   if(view.v === "home"){ const rm = matchMedia("(prefers-reduced-motion: reduce)").matches; window.scrollTo({top:0, behavior: rm ? "auto" : "smooth"}); $("#main").focus({preventScroll:true}); }
@@ -36795,8 +36819,8 @@ fromHash(); render();
   /* Namensfrage: wird mit jeder Wiederholung etwas drängender und lustiger; zeigt auf das Eingabefeld */
   function nameNudge(){
     const el = document.querySelector(".nameq") || document.querySelector(".herobar .namebtn"); if(!el) return;
-    const rm = matchMedia("(prefers-reduced-motion: reduce)").matches, r = el.getBoundingClientRect();
-    if(r.top < 70 || r.bottom > innerHeight - 20) el.scrollIntoView({behavior: rm ? "auto" : "smooth", block: "center"});
+    /* Die Seite scrollt NIE von selbst (Nutzer lesen weiter unten, ein automatischer Sprung nach oben verwirrt): das Feld pulsiert nur, wenn es gerade im sichtbaren Bereich liegt */
+    const r = el.getBoundingClientRect(); if(r.bottom < 0 || r.top > innerHeight) return;
     el.classList.remove("nudge"); void el.offsetWidth; el.classList.add("nudge"); setTimeout(() => el.classList.remove("nudge"), 4200);
   }
   async function namensfrage(d){
