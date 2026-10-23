@@ -391,6 +391,17 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 @media(max-width:360px){.top #bt{font-size:.92rem}}
 @media(max-width:560px){html[lang="kk"] .top #bt{font-size:.78rem;overflow-wrap:normal;letter-spacing:-.01em}}   /* langes Wort "интеллектісі" soll in der Kopfzeile nicht mitten im Wort umbrechen */
 @media(max-width:340px){.topin{flex-wrap:wrap}.top .brand{flex:1 1 100%}}
+
+/* Autoren-Hinweis: auffaelliger Knopf, ganzer Text ist der Link (PFLICHT) */
+.fcredit{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:6px}
+.fcredit .fver{margin:14px 0 0}
+a.credit{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:12px 28px;border-radius:999px;border:2px solid #fff;background:linear-gradient(135deg,var(--pri-d) 0%,var(--pri) 100%);color:#fff;font-weight:800;font-size:1.08rem;letter-spacing:.2px;text-decoration:none;white-space:nowrap;max-width:100%;box-shadow:0 0 0 3px var(--gold),0 8px 22px rgba(0,0,0,.3);transition:transform .15s,filter .15s}
+@media(max-width:420px){a.credit{font-size:1rem;padding:12px 18px;gap:8px}}
+a.credit .cr-st{color:var(--gold);font-size:1.2rem;line-height:1}
+a.credit .cr-ar{font-size:1.15rem;line-height:1}
+a.credit:hover{filter:brightness(1.12);transform:translateY(-2px)}
+a.credit:focus-visible{outline:3px solid #fff;outline-offset:4px;box-shadow:0 0 0 6px var(--pri-d)}
+@media print{.fcredit{display:none}}
 </style>
 </head>
 <body>
@@ -36507,7 +36518,7 @@ function chrome(){
       h("ul", {class:"srclist"}, sl.src.map(s => h("li", null, h("a", {href:s[1], rel:"noopener"}, s[0][li]))))) : null,
     view.v !== "home" ? h("div", {class:"fhome"}, h("button", {type:"button", class:"btn ghost", onclick:() => go("home")}, (() => { const s = h("span", {"aria-hidden":"true"}); s.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-6h4v6"/></svg>'; return s; })(), h("span", {text:t("toHome")}))) : null,
     view.v === "home" ? h("div", {class:"fcard"}, h("span", {class:"fic", "aria-hidden":"true"}, "ℹ️"), h("div", null, h("p", {class:"fdisc", text:t("disc")}), h("p", {class:"ftrans", text:t("trans")}))) : null,
-    view.v === "home" ? h("p", {class:"fver"}, h("span", {}, t("ver") + " " + VERSION + " · ", h("a", {href:"https://nosz.github.io/norbert-szpak", target:"_blank", rel:"noopener noreferrer", text:"Website Design by Norbert"}))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
+    view.v === "home" ? h("div", {class:"fcredit"}, h("p", {class:"fver"}, h("span", {text:t("ver") + " " + VERSION})), h("a", {class:"credit", href:"https://nosz.github.io/norbert-szpak/", target:"_blank", rel:"noopener noreferrer"}, h("span", {class:"cr-st", "aria-hidden":"true"}, "✦"), h("span", {text:"Website Design by Norbert"}), h("span", {class:"cr-ar", "aria-hidden":"true"}, "↗"))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
 }
 $("#brand").onclick = () => {
   if(view.v === "home"){ const rm = matchMedia("(prefers-reduced-motion: reduce)").matches; window.scrollTo({top:0, behavior: rm ? "auto" : "smooth"}); $("#main").focus({preventScroll:true}); }
