@@ -46,6 +46,7 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.2.13 (23.10.2026): Autoren-Hinweis im Fuß als auffälliger Knopf überarbeitet (ganzer Text ist der Link auf https://nosz.github.io/norbert-szpak/); Version angehoben, alle Tests und die Link-Pflicht-Prüfung erneut.
 - 1.2.12 (23.10.2026): Im Fuß steht jetzt „Website Design by Norbert“ statt „Created by Norbert“ (auffälliger Knopf unter der Version, der ganze Text ist der Link auf https://nosz.github.io/norbert-szpak/).
 - 1.2.11 (22.10.2026): **Neue Sprache Kasachisch (Қазақша, kk)**, insgesamt 34 Sprachen, mit selbst gezeichneter, vereinfachter Flagge von Kasachstan (flags/kk.svg, eigene Datei statt flag-icons; muss mit hochgeladen werden); Übersetzung von einem Agenten aus der englischen Fassung erstellt, nicht von Muttersprachlern geprüft.
 - 1.2.10 (22.10.2026): Herzi-Sagt-Karte mit Herzi-Symbol, "Wusstest du?" auf dem Teilen-Bild, größere Grußzeile (z. B. "Mit Herz geschickt von Name") auf dem Bild.
