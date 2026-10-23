@@ -409,7 +409,7 @@ h2.secrow .cnt{font-size:.9rem;color:var(--mute);font-weight:700}
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.11", STAND = "20.10.2026";
+const VERSION = "1.2.12", STAND = "23.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -36507,7 +36507,7 @@ function chrome(){
       h("ul", {class:"srclist"}, sl.src.map(s => h("li", null, h("a", {href:s[1], rel:"noopener"}, s[0][li]))))) : null,
     view.v !== "home" ? h("div", {class:"fhome"}, h("button", {type:"button", class:"btn ghost", onclick:() => go("home")}, (() => { const s = h("span", {"aria-hidden":"true"}); s.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-6h4v6"/></svg>'; return s; })(), h("span", {text:t("toHome")}))) : null,
     view.v === "home" ? h("div", {class:"fcard"}, h("span", {class:"fic", "aria-hidden":"true"}, "ℹ️"), h("div", null, h("p", {class:"fdisc", text:t("disc")}), h("p", {class:"ftrans", text:t("trans")}))) : null,
-    view.v === "home" ? h("p", {class:"fver"}, h("span", {}, t("ver") + " " + VERSION + " · ", h("a", {href:"https://nosz.github.io/norbert-szpak", target:"_blank", rel:"noopener noreferrer", text:"Created by Norbert"}))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
+    view.v === "home" ? h("p", {class:"fver"}, h("span", {}, t("ver") + " " + VERSION + " · ", h("a", {href:"https://nosz.github.io/norbert-szpak", target:"_blank", rel:"noopener noreferrer", text:"Website Design by Norbert"}))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
 }
 $("#brand").onclick = () => {
   if(view.v === "home"){ const rm = matchMedia("(prefers-reduced-motion: reduce)").matches; window.scrollTo({top:0, behavior: rm ? "auto" : "smooth"}); $("#main").focus({preventScroll:true}); }
