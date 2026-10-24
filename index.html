@@ -262,6 +262,7 @@ html{scroll-padding-top:calc(var(--hh,70px) + var(--nh,0px) + 10px)}
 }
 @media print{.stickynav{position:static;box-shadow:none}}
 @media (max-width:480px){.herobar{gap:6px}.herobar .namebtn{padding:6px 10px;gap:6px;font-size:.84rem}.herobar .bpre{display:none}}
+.imgov{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.85);display:flex;flex-direction:column;align-items:center;gap:12px;padding:16px;overflow:auto}.imgov img{max-width:100%;height:auto;background:#fff;border-radius:12px;-webkit-touch-callout:default;user-select:auto}.imgov p{color:#fff;margin:0;text-align:center;max-width:520px}
 .shdlg{border:2px solid var(--line);border-radius:var(--r);padding:18px;background:var(--card);color:var(--ink);box-shadow:0 12px 40px rgba(0,0,0,.35);width:min(92vw,460px);max-width:none}.shdlg::backdrop{background:rgba(0,0,0,.5)}.shdlg .shx{float:right;min-height:44px;min-width:44px;border-radius:999px;border:2px solid var(--line);background:var(--card);color:var(--ink);font-size:1.1rem}.sharecard{margin:0}
 .sharecard .sh{display:flex;gap:14px;align-items:center}.sharecard .si{font-size:1.8rem}.sharecard b{display:block}.sharecard small{color:var(--mute)}
 .sharerow{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.sharerow .btn{min-height:44px;padding:8px 16px;font-size:.92rem}.sharerow .btn.ghost{box-shadow:none}
@@ -435,7 +436,7 @@ a.credit:focus-visible{outline:3px solid #fff;outline-offset:4px;box-shadow:0 0 
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.14", STAND = "23.10.2026";
+const VERSION = "1.2.15", STAND = "23.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -36190,10 +36191,10 @@ function spruchShareButton(x){
     document.querySelectorAll(".shdlg").forEach(d => d.remove());
     const d = h("dialog", {class:"shdlg", "aria-labelledby":"sht"}), xb = h("button", {type:"button", class:"shx", "aria-label":t("shX"), onclick:() => d.close()}, "✕");
     const img = h("img", {class:"spruchbild", alt:spruchKopf(x) + ": " + text, style:"display:block;max-width:100%;max-height:46vh;margin:0 auto 12px;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,.25)"}); img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(spruchBildSvg(x, gruss));
-    const dl = h("button", {type:"button", class:"btn ghost", style:"margin:0 0 10px", onclick:async () => { try{ const f = await prep(); const a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = SPRUCH_BILD; document.body.append(a); a.click(); a.remove(); }catch(e){} }}, "⬇ " + t("dl"));
+    const dl = h("button", {type:"button", class:"btn ghost", style:"margin:0 0 10px", onclick:async () => { try{ const f = await prep(); if(inApp()){ showCertImage(f); return; } const a = document.createElement("a"); a.href = URL.createObjectURL(f); a.download = SPRUCH_BILD; document.body.append(a); a.click(); a.remove(); }catch(e){} }}, "⬇ " + t("dl"));
     d.append(xb, img, dl, shareCard("", title));   // WhatsApp, E-Mail und Link kopieren: nur der Link
     d.addEventListener("close", () => d.remove()); d.addEventListener("click", e => { if(e.target === d) d.close(); });
-    document.body.append(d); d.showModal();
+    openDlg(d);
   }}, shareIcon(22), h("span", {class:"shl", text:t("spruchShare")}));
   btn.addEventListener("pointerdown", () => { prep().catch(() => { pre = null; }); });
   return btn;
@@ -36352,9 +36353,9 @@ function certShareButton(l, compact){
     }
     document.querySelectorAll(".shdlg").forEach(d => d.remove());
     const d = h("dialog", {class:"shdlg", "aria-labelledby":"sht"}), x = h("button", {type:"button", class:"shx", "aria-label":t("shX"), onclick:() => d.close()}, "✕");
-    d.append(x, shareCard(text, title), h("p", {class:"small", style:"margin:10px 0 0;color:var(--mute)", text:t("shCertNoImg")}));
+    d.append(x, shareCard(text, title), h("p", {class:"small", style:"margin:10px 0 0;color:var(--mute)", text:(inApp() ? INAPP_T("inappHint") : t("shCertNoImg"))}));
     d.addEventListener("close", () => d.remove()); d.addEventListener("click", e => { if(e.target === d) d.close(); });
-    document.body.append(d); d.showModal();
+    openDlg(d);
   }}, shareIcon(compact ? 20 : 28), h("span", {class:"shl", text:t(compact ? "shShort" : "shCert")}));
   if(compact){ const warm = () => { prep().catch(() => { pre = null; }); }; btn.addEventListener("pointerdown", warm); btn.addEventListener("focus", warm); }
   return btn;
@@ -36481,10 +36482,29 @@ function renderCert(l){
   m.append(nLink());
   if(!matchMedia("(prefers-reduced-motion: reduce)").matches) confetti();
 }
+const INAPP_TX = {
+  inappHint:{de:"Du bist im Facebook-/Instagram-Browser. Teilen und Speichern gehen dort oft nicht. Tippe auf die drei Punkte und wähle „Im Browser öffnen“.", en:"You are in the Facebook/Instagram browser. Sharing and saving often fail here. Tap the three dots and choose “Open in browser”.", fr:"Tu es dans le navigateur de Facebook/Instagram. Partager et enregistrer y échouent souvent. Touche les trois points et choisis « Ouvrir dans le navigateur ».", es:"Estás en el navegador de Facebook/Instagram. Compartir y guardar suelen fallar aquí. Toca los tres puntos y elige «Abrir en el navegador».", it:"Sei nel browser di Facebook/Instagram. Condividere e salvare spesso non funzionano qui. Tocca i tre puntini e scegli «Apri nel browser».", pt:"Estás no navegador do Facebook/Instagram. Partilhar e guardar falham muitas vezes aqui. Toca nos três pontos e escolhe «Abrir no navegador».", nl:"Je zit in de Facebook-/Instagram-browser. Delen en opslaan werken hier vaak niet. Tik op de drie puntjes en kies “Openen in browser”.", tr:"Facebook/Instagram tarayıcısındasın. Paylaşma ve kaydetme burada çoğu zaman çalışmaz. Üç noktaya dokun ve “Tarayıcıda aç”ı seç.", pl:"Jesteś w przeglądarce Facebooka/Instagrama. Udostępnianie i zapisywanie często tu nie działa. Dotknij trzech kropek i wybierz „Otwórz w przeglądarce”."},
+  imgHint:{de:"Bild lange drücken (Handy) oder Rechtsklick (PC) und „Bild speichern“ wählen.", en:"Long-press the image (phone) or right-click (PC) and choose “Save image”.", fr:"Appuie longuement sur l’image (téléphone) ou clic droit (PC) et choisis « Enregistrer l’image ».", es:"Mantén pulsada la imagen (móvil) o clic derecho (PC) y elige «Guardar imagen».", it:"Tieni premuta l’immagine (telefono) o clic destro (PC) e scegli «Salva immagine».", pt:"Mantém a imagem premida (telemóvel) ou clique direito (PC) e escolhe «Guardar imagem».", nl:"Houd de afbeelding ingedrukt (telefoon) of klik rechts (pc) en kies “Afbeelding opslaan”.", tr:"Görsele uzun bas (telefon) veya sağ tıkla (PC) ve “Resmi kaydet”i seç.", pl:"Przytrzymaj obraz (telefon) lub kliknij prawym przyciskiem (PC) i wybierz „Zapisz obraz”."},
+  imgClose:{de:"Schließen", en:"Close", fr:"Fermer", es:"Cerrar", it:"Chiudi", pt:"Fechar", nl:"Sluiten", tr:"Kapat", pl:"Zamknij"}
+};
+const INAPP_T = k => { const o = INAPP_TX[k], c = (LANGS[li][3] || "").slice(0, 2); return o[c] || o[LANGS[li][0]] || (c === "de" || ["swg", "bay", "nds"].includes(LANGS[li][0]) ? o.de : o.en); };
+/* Facebook-, Instagram-, Messenger- und ähnliche App-Browser: Download per a.download und Teilen sind dort oft gesperrt */
+const inApp = () => /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Messenger|Line\/|Snapchat|TikTok|musical_ly|; wv\)/i.test(navigator.userAgent);
+const openDlg = d => { document.body.append(d); if(d.showModal) d.showModal(); else { d.close = () => d.remove(); d.setAttribute("open", ""); } };
+/* Zertifikat als Bild einblenden: lang drücken bzw. Rechtsklick speichert es, das geht auch im App-Browser */
+function showCertImage(blob){
+  document.querySelectorAll(".imgov").forEach(o => o.remove());
+  const url = URL.createObjectURL(blob), close = () => { o.remove(); URL.revokeObjectURL(url); };
+  const o = h("div", {class:"imgov", role:"dialog", "aria-modal":"true", "aria-label":t("dl")},
+    h("button", {type:"button", class:"btn", onclick:close}, "✕ " + INAPP_T("imgClose")),
+    h("img", {src:url, alt:t("dl")}), h("p", {text:INAPP_T("imgHint")}));
+  document.body.append(o);
+}
 function savePng(svg, name){
-  const url = URL.createObjectURL(new Blob([svg], {type:"image/svg+xml;charset=utf-8"})), img = new Image();
-  img.onload = () => { const c = document.createElement("canvas"); c.width = 1123; c.height = 794; const x = c.getContext("2d"); x.fillStyle = "#fff"; x.fillRect(0, 0, 1123, 794); x.drawImage(img, 0, 0); URL.revokeObjectURL(url); c.toBlob(b => { const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = name; document.body.append(a); a.click(); a.remove(); }); };
-  img.src = url;
+  certPngBlob(svg).then(b => {
+    if(inApp()){ showCertImage(b); return; }
+    try{ const a = document.createElement("a"); a.href = URL.createObjectURL(b); a.download = name; document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 60000); }catch(e){ showCertImage(b); }
+  }).catch(() => snack(t("shFail"), "OK", () => {}, 6000));
 }
 function certList(){
   /* Die Urkunden der Lektionen (ansehen, teilen) stehen an den Lektionskarten; hier nur die Meisterurkunde */
@@ -36560,7 +36580,7 @@ function hilfeDialog(titel, kids){
   document.querySelectorAll(".shdlg").forEach(d => d.remove());
   const d = h("dialog", {class:"shdlg", "aria-labelledby":"iht"}, h("button", {type:"button", class:"shx", "aria-label":t("shX"), onclick:() => d.close()}, "✕"), h("p", {class:"shh"}, h("b", {id:"iht", text:titel})), ...kids);
   d.addEventListener("click", ev => { if(ev.target === d) d.close(); }); d.addEventListener("close", () => d.remove());
-  document.body.append(d); d.showModal();
+  openDlg(d);
 }
 const iosHelp = () => hilfeDialog(t("instIosT"), [h("ol", {class:"instol"}, h("li", {text:t("instI1")}), h("li", {text:t("instI2")}), h("li", {text:t("instI3")})), h("p", {class:"shh"}, h("small", {text:t("instINote")}))]);
 const menuHelp = () => hilfeDialog(t("instMenuT"), [h("p", {text:installState === "cancelled" ? t("instCancel") + " " + t("instMenu") : t("instMenu")})]);
@@ -36581,7 +36601,7 @@ function openShare(){
   document.querySelectorAll(".shdlg").forEach(d => d.remove());
   const d = h("dialog", {class:"shdlg", "aria-labelledby":"sht"}), x = h("button", {type:"button", class:"shx", "aria-label":t("shX"), onclick:() => d.close()}, "✕");
   d.append(x, shareCard()); d.addEventListener("close", () => d.remove()); d.addEventListener("click", e => { if(e.target === d) d.close(); });
-  document.body.append(d); d.showModal();
+  openDlg(d);
 }
 function shareCard(txt = t("shMsg"), subj = t("shSubj")){
   const enc = encodeURIComponent;
@@ -36605,6 +36625,7 @@ function snack(text, btn, fn, ms){
   document.body.append(s); if(ms) setTimeout(() => s.remove(), ms);
 }
 window.addEventListener("beforeinstallprompt", e => { e.preventDefault(); deferredInstall = e; if(view.v === "home" && !editName) render(true); });
+if(inApp()) window.addEventListener("load", () => snack(INAPP_T("inappHint"), "OK", () => {}));
 window.addEventListener("appinstalled", () => { deferredInstall = null; installState = "done"; if(view.v === "home") render(true); });
 if("serviceWorker" in navigator && /^https?:$/.test(location.protocol)){
   let reloading = false, hadController = !!navigator.serviceWorker.controller;

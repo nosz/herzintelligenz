@@ -2,7 +2,7 @@
 
 # Herzintelligenz: Projektnotizen (Entwicklung)
 
-> **Diese Datei ist nur für die Entwicklung und wird nicht hochgeladen** (steht in `.gitignore`, ebenso der Ordner `tests`). Die Startseite für Besucher ist `README.md`. (eine Datei, offline lauffähig, Version 1.2.0, Stand 20.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
+> **Diese Datei ist nur für die Entwicklung und wird nicht hochgeladen** (steht in `.gitignore`, ebenso der Ordner `tests`). Die Startseite für Besucher ist `README.md`. (eine Datei, offline lauffähig, Version 1.2.15, Stand 23.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
 
 > **Veröffentlichung:** GitHub-Repository `herzintelligenz` (Benutzer `nosz`), Adresse `https://nosz.github.io/herzintelligenz/`. Alle Dateien der Liste unten ins Hauptverzeichnis des Repositories legen, dazu den **Ordner `flags`** (34 Dateien, 33 Flaggen und die Lizenz); der Ordner `tests` bleibt lokal, GitHub Pages auf den Hauptzweig stellen. Bei anderer Adresse in `index.html` (canonical, og:url, og:image, twitter:image, `HOME`) und in dieser README anpassen.
 
@@ -46,6 +46,8 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.2.15 (24.10.2026): Teilen und Urkunden-Download in App-Browsern (Facebook, Instagram, Messenger) repariert: Erkennung mit Hinweis "Im Browser öffnen", Urkunden-Bild zum Speichern per langem Druck, Fehlerbehandlung beim Download.
+- 1.2.14 (23.10.2026): **Fehler behoben: die Seite scrollte von selbst nach oben** (der Hinweis auf das Namensfeld zog die Seite per scrollIntoView zum Feld, auch wenn man weiter unten las); die Seite scrollt jetzt nie mehr von selbst, das Feld pulsiert nur, wenn es sichtbar ist (Test scroll.test.js). **Autoren-Knopf** hat ein deutliches Link-Symbol (Kettenglied), ein Symbol für externe Seite und zeigt die Adresse nosz.github.io/norbert-szpak unterstrichen. **Name-Knopf heißt jetzt „Speichern“ (statt „Das bin ich“) in allen 34 Sprachen** und hat ein Speichern-Symbol (Test pflicht.test.js). Version angehoben.
 - 1.2.13 (23.10.2026): Autoren-Hinweis im Fuß als auffälliger Knopf überarbeitet (ganzer Text ist der Link auf https://nosz.github.io/norbert-szpak/); Version angehoben, alle Tests und die Link-Pflicht-Prüfung erneut.
 - 1.2.12 (23.10.2026): Im Fuß steht jetzt „Website Design by Norbert“ statt „Created by Norbert“ (auffälliger Knopf unter der Version, der ganze Text ist der Link auf https://nosz.github.io/norbert-szpak/).
 - 1.2.11 (22.10.2026): **Neue Sprache Kasachisch (Қазақша, kk)**, insgesamt 34 Sprachen, mit selbst gezeichneter, vereinfachter Flagge von Kasachstan (flags/kk.svg, eigene Datei statt flag-icons; muss mit hochgeladen werden); Übersetzung von einem Agenten aus der englischen Fassung erstellt, nicht von Muttersprachlern geprüft.
