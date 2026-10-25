@@ -2,7 +2,7 @@
 
 # Herzintelligenz: Projektnotizen (Entwicklung)
 
-> **Diese Datei ist nur für die Entwicklung und wird nicht hochgeladen** (steht in `.gitignore`, ebenso der Ordner `tests`). Die Startseite für Besucher ist `README.md`. (eine Datei, offline lauffähig, Version 1.2.16, Stand 25.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
+> **Diese Datei ist nur für die Entwicklung und wird nicht hochgeladen** (steht in `.gitignore`, ebenso der Ordner `tests`). Die Startseite für Besucher ist `README.md`. (eine Datei, offline lauffähig, Version 1.2.17, Stand 25.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
 
 > **Veröffentlichung:** GitHub-Repository `herzintelligenz` (Benutzer `nosz`), Adresse `https://nosz.github.io/herzintelligenz/`. Alle Dateien der Liste unten ins Hauptverzeichnis des Repositories legen, dazu den **Ordner `flags`** (34 Dateien, 33 Flaggen und die Lizenz); der Ordner `tests` bleibt lokal, GitHub Pages auf den Hauptzweig stellen. Bei anderer Adresse in `index.html` (canonical, og:url, og:image, twitter:image, `HOME`) und in dieser README anpassen.
 
@@ -46,6 +46,7 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.2.17 (25.10.2026): **Herzi sichtbarer auf Urkunden:** Die lächelnde Herz-Figur erscheint zusätzlich gut erkennbar oben rechts auf allen Lektionen- und Meisterurkunden; das bestehende kleine Siegel bleibt erhalten. Titelbreite angepasst, damit sich die Figur nicht mit langen Urkundentiteln überschneidet.
 - 1.2.16 (25.10.2026): **Neues Aussehen von Herzi:** „Zuckerherz“ (gezeichnetes, lächelndes Herz mit Wimpern und zwei Beinen, größer als vorher) statt des Pixel-Herzens, auch im Herzi-Knopf, im Spruch-Bild und auf den Urkunden; neue Icons (icon-192, icon-512, icon-maskable-512, apple-touch-icon, favicon) und neues Vorschaubild (herzintelligenz_vorschau.jpg, Adresse mit `?v=2`). Die Schuhe wechseln bei jedem Auftritt (Himmelblau, Minzgrün, Sonnengelb); ab und zu sagt Herzi etwas zu den neuen Schuhen, in allen 34 Sprachen (von einem Agenten übersetzt, nicht von Muttersprachlern geprüft). Das Symbol ganz links in der Kopfzeile ist entfernt.
 - 1.2.15 (24.10.2026): Teilen und Urkunden-Download in App-Browsern (Facebook, Instagram, Messenger) repariert: Erkennung mit Hinweis "Im Browser öffnen", Urkunden-Bild zum Speichern per langem Druck, Fehlerbehandlung beim Download.
 - 1.2.14 (23.10.2026): **Fehler behoben: die Seite scrollte von selbst nach oben** (der Hinweis auf das Namensfeld zog die Seite per scrollIntoView zum Feld, auch wenn man weiter unten las); die Seite scrollt jetzt nie mehr von selbst, das Feld pulsiert nur, wenn es sichtbar ist (Test scroll.test.js). **Autoren-Knopf** hat ein deutliches Link-Symbol (Kettenglied), ein Symbol für externe Seite und zeigt die Adresse nosz.github.io/norbert-szpak unterstrichen. **Name-Knopf heißt jetzt „Speichern“ (statt „Das bin ich“) in allen 34 Sprachen** und hat ein Speichern-Symbol (Test pflicht.test.js). Version angehoben.

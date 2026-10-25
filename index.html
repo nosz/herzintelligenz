@@ -436,7 +436,7 @@ a.credit:focus-visible{outline:3px solid #fff;outline-offset:4px;box-shadow:0 0 
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.16", STAND = "25.10.2026";
+const VERSION = "1.2.17", STAND = "25.10.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -36684,7 +36684,8 @@ function certSVG(l){
   const band = ["#c2187f","#2a0e45","#ffc800","#1b7a3d","#8e2bb5"].map((c, i) => '<rect x="' + (60 + i*200.6) + '" y="36" width="200.6" height="16" fill="' + c + '"/>').join("");
   const conf = [[110,150,"#2a0e45"],[1010,170,"#ffc800"],[130,640,"#1b7a3d"],[1000,650,"#8e2bb5"],[90,330,"#ffc800"],[1030,360,"#c2187f"],[160,230,"#c2187f"],[960,250,"#1b7a3d"]].map(a => herzchen(a[0] + 8, a[1] + 8, a[2], a[0] % 40 - 20)).join("");
   const head = M ? g("headM") : g("head");
-  const hs = Math.min(72, Math.floor(860 / (head.length * 0.78)));
+  /* Etwas Platz rechts für Herzi lassen, damit die Figur auf jeder Urkunde gut sichtbar ist. */
+  const hs = Math.min(72, Math.floor(660 / (head.length * 0.78)));
   const line = hasName() ? fill(M ? CT.lineMN[li] : CT.linesN[Math.max(0, st-1)][li]) : (M ? g("lineM") : CT.lines[Math.max(0, st-1)][li]);
   const rank = rankName(T.st);
   const lw = [...line].reduce((s, c) => s + (/[WMm@]/.test(c) ? 1.05 : /\s/.test(c) ? .3 : /[A-ZÄÖÜ]/.test(c) ? .74 : /[ilj.,'!|]/.test(c) ? .3 : .56), 0), lsz = Math.max(13, Math.min(22, Math.floor(960 / lw)));
@@ -36694,6 +36695,9 @@ function certSVG(l){
    + '<rect x="25" y="25" width="1073" height="744" rx="17" fill="none" stroke="#ffc800" stroke-width="2.5"/>'
    + '<rect x="34" y="34" width="1055" height="726" rx="14" fill="none" stroke="#e1e2e5" stroke-width="2" stroke-dasharray="10 8"/>'
    + band + conf
+   /* Herzi als richtige Figur oben rechts auf jeder Urkunde – nicht nur als kleines Siegel unten. */
+   + '<circle cx="1002" cy="106" r="43" fill="#fdeaf4" stroke="#f6d9ea" stroke-width="2.5"/>'
+   + '<g transform="translate(977 73) scale(.5)">' + zuckerInner("#ffc800") + '</g>'
    + '<text x="561.5" y="' + (140 + o) + '" text-anchor="middle" font-size="' + hs + '" font-weight="800" letter-spacing="4" fill="#c2187f" ' + F + '>' + esc(head) + '</text>'
    + '<text x="561.5" y="' + (172 + o) + '" text-anchor="middle" font-size="16" font-weight="700" letter-spacing="4" fill="#2a0e45" ' + F + '>' + esc(t("title").toUpperCase()) + '</text>'
    + '<text x="561.5" y="' + (203 + o) + '" text-anchor="middle" font-size="22" fill="#4d4f54" ' + F + '>' + esc(g("conf")) + '</text>'
