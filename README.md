@@ -13,7 +13,7 @@ Kostenlos, ohne Anmeldung, läuft im Browser auf Handy, Tablet und Computer. Dei
 - **Herzi**, das kleine pochende Herz, schaut vorbei, erzählt Herz-Fakten und Witze, tanzt und klettert durchs Bild.
 - **Herzrechner:** Alter eintragen und erfahren, wie oft das Herz schon für dich geschlagen hat.
 - **Urkunden** für jede Lektion und eine Meisterurkunde, zum Speichern, Drucken und Teilen.
-- **34 Sprachen**, jeweils mit Flagge: Hochdeutsch, acht Mundarten und viele Weltsprachen. Der Link merkt sich die Sprache.
+- **35 Sprachen**, jeweils mit Flagge: Hochdeutsch, acht Mundarten und viele Weltsprachen. Der Link merkt sich die Sprache.
 - **Installieren und offline nutzen:** auf dem Handy im Browsermenü „Zum Startbildschirm hinzufügen“, am Computer „App installieren“.
 
 ## Alle Sprachen mit Direktlink
@@ -54,6 +54,7 @@ Ein Klick startet die App gleich in der jeweiligen Sprache (Adresse mit `?lang=<
 | <img src="flags/uk.svg" alt="" width="28"> | Українська (Ukrainisch) | [https://nosz.github.io/herzintelligenz/?lang=uk](https://nosz.github.io/herzintelligenz/?lang=uk) |
 | <img src="flags/ru.svg" alt="" width="28"> | Русский (Russisch) | [https://nosz.github.io/herzintelligenz/?lang=ru](https://nosz.github.io/herzintelligenz/?lang=ru) |
 | <img src="flags/el.svg" alt="" width="28"> | Ελληνικά (Griechisch) | [https://nosz.github.io/herzintelligenz/?lang=el](https://nosz.github.io/herzintelligenz/?lang=el) |
+| <img src="flags/sq.svg" alt="" width="28"> | Shqip (Albanisch) | [https://nosz.github.io/herzintelligenz/?lang=sq](https://nosz.github.io/herzintelligenz/?lang=sq) |
 | <img src="flags/tr.svg" alt="" width="28"> | Türkçe (Türkisch) | [https://nosz.github.io/herzintelligenz/?lang=tr](https://nosz.github.io/herzintelligenz/?lang=tr) |
 
 **Weltweit**
@@ -73,4 +74,4 @@ Ein Klick startet die App gleich in der jeweiligen Sprache (Adresse mit `?lang=<
 - Die Mundarten und Fremdsprachen sind liebevoll gemeint; Muttersprachler dürfen gern korrigieren.
 - Weitere Seiten von Norbert findest du in der App unter „Interessante Links“.
 
-**Von Norbert Szpak** · [Impressum](https://nosz.github.io/norbert-szpak/impressum.html) · Version 1.2.17 (25.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
+**Von Norbert Szpak** · [Impressum](https://nosz.github.io/norbert-szpak/impressum.html) · Version 1.2.18 (31.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
