@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 640 480">
+  <rect width="640" height="480" fill="#e41e20"/>
+  <g id="h" fill="#000">
+    <path d="M320 150c14 0 22 20 22 50v70c0 22-8 40-22 50z"/>
+    <path d="M338 205 478 118l-20 38 26 4-28 32 22 8-32 26 18 12-44 18-80 10z"/>
+    <path d="M330 168c4-30 12-52 28-62l-8-12c14-8 30-4 38 4l14 2-12 10c-2 10-10 16-20 16-8 8-14 24-18 46z"/>
+    <path d="M320 318h22l18 50-40-14z"/>
+    <path d="M332 300h10l14 26-12 4z"/>
+  </g>
+  <use xlink:href="#h" transform="matrix(-1 0 0 1 640 0)"/>
+</svg>
