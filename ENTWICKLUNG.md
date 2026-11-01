@@ -2,7 +2,7 @@
 
 # Herzintelligenz: Projektnotizen (Entwicklung)
 
-> **Diese Datei ist nur für die Entwicklung und wird nicht hochgeladen** (steht in `.gitignore`, ebenso der Ordner `tests`). Die Startseite für Besucher ist `README.md`. (eine Datei, offline lauffähig, Version 1.2.18, Stand 31.10.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
+> **Diese Datei ist nur für die Entwicklung und wird nicht hochgeladen** (steht in `.gitignore`, ebenso der Ordner `tests`). Die Startseite für Besucher ist `README.md`. (eine Datei, offline lauffähig, Version 1.2.21, Stand 01.11.2026). Einfach im Browser öffnen oder auf einem Webserver ablegen.
 
 > **Veröffentlichung:** GitHub-Repository `herzintelligenz` (Benutzer `nosz`), Adresse `https://nosz.github.io/herzintelligenz/`. Alle Dateien der Liste unten ins Hauptverzeichnis des Repositories legen, dazu den **Ordner `flags`** (34 Dateien, 33 Flaggen und die Lizenz); der Ordner `tests` bleibt lokal, GitHub Pages auf den Hauptzweig stellen. Bei anderer Adresse in `index.html` (canonical, og:url, og:image, twitter:image, `HOME`) und in dieser README anpassen.
 
@@ -46,6 +46,9 @@ Farben nach der Vorlage des Auftraggebers: Magenta (`#c2187f`), Violett (`#6a1fa
 - Links zu den Partnerseiten hängen davon ab, dass die Seiten online sind.
 
 ## Änderungen
+- 1.2.21 (01.11.2026): Im blauen Veranstaltungs-Knopf steht ein kleines rotes Herz zwischen „Herz“ und „Intelligenz“ (in anderen Sprachen hinter dem Wort für Herz; `eventTitel`, `HERZ_WORT`).
+- 1.2.20 (01.11.2026): Der blaue Veranstaltungs-Knopf zeigt jetzt „Herzintelligenz vs. Künstliche Intelligenz“ und darunter „Freitag, 27.11.2026, Heilbronn-Horkheim“ (statt der Adresse); App-Name, „Künstliche Intelligenz“ und Wochentag in allen 35 Sprachen (`EVENT_T`, von Claude übersetzt, nicht von Muttersprachlern geprüft).
+- 1.2.19 (01.11.2026): **Hinweis auf die Veranstaltung am 27.11.** im Fuß der Startseite: blauer Knopf im Design des Autoren-Knopfs (Kalender-Symbol, Text in allen 35 Sprachen, `EVENT_T`), öffnet https://nosz.github.io/norbert-szpak/info-veranstaltung.html in einem neuen Tab. Übersetzungen von Claude erstellt, nicht von Muttersprachlern geprüft.
 - 1.2.18 (31.10.2026): **Neue Sprache Albanisch (Shqip, sq)**, insgesamt 35 Sprachen, in der Gruppe Europa nach Griechisch; mit selbst gezeichneter, vereinfachter Flagge von Albanien (flags/sq.svg, eigene Datei statt flag-icons; muss mit hochgeladen werden, steht auch in `sw.js`). Kurzformen `al`, `sq-AL`, `sq-XK`, `sq-MK` werden erkannt; Notrufnummern im Text: 112 und 127 (Rettung Albanien). Übersetzung von Agenten aus der englischen Fassung erstellt, nicht von Muttersprachlern geprüft.
 - 1.2.17 (25.10.2026): **Herzi sichtbarer auf Urkunden:** Die lächelnde Herz-Figur erscheint zusätzlich gut erkennbar oben rechts auf allen Lektionen- und Meisterurkunden; das bestehende kleine Siegel bleibt erhalten. Titelbreite angepasst, damit sich die Figur nicht mit langen Urkundentiteln überschneidet.
 - 1.2.16 (25.10.2026): **Neues Aussehen von Herzi:** „Zuckerherz“ (gezeichnetes, lächelndes Herz mit Wimpern und zwei Beinen, größer als vorher) statt des Pixel-Herzens, auch im Herzi-Knopf, im Spruch-Bild und auf den Urkunden; neue Icons (icon-192, icon-512, icon-maskable-512, apple-touch-icon, favicon) und neues Vorschaubild (herzintelligenz_vorschau.jpg, Adresse mit `?v=2`). Die Schuhe wechseln bei jedem Auftritt (Himmelblau, Minzgrün, Sonnengelb); ab und zu sagt Herzi etwas zu den neuen Schuhen, in allen 34 Sprachen (von einem Agenten übersetzt, nicht von Muttersprachlern geprüft). Das Symbol ganz links in der Kopfzeile ist entfernt.

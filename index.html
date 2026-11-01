@@ -409,6 +409,8 @@ a.credit .cr-st{color:var(--gold);font-size:1.2rem;line-height:1}
 a.credit .cr-ar{font-size:1.15rem;line-height:1}
 a.credit:hover{filter:brightness(1.12);transform:translateY(-2px)}
 a.credit:focus-visible{outline:3px solid #fff;outline-offset:4px;box-shadow:0 0 0 6px var(--pri-d)}
+.fcredit a.credit{width:100%;max-width:520px;min-height:72px}
+a.credit.credit-evt{background:linear-gradient(135deg,#0a3f86 0%,#1d7bd8 100%)}a.credit.credit-evt .cr-t,a.credit.credit-evt .cr-u{white-space:normal}a.credit.credit-evt .cr-t{font-size:1rem}a.credit.credit-evt .hz{font-size:.78em;vertical-align:.05em}a.credit.credit-evt:focus-visible{box-shadow:0 0 0 6px #0a3f86}@media(max-width:420px){a.credit.credit-evt .cr-t{font-size:.95rem}a.credit.credit-evt .cr-u{font-size:.76rem}}
 .btnsave{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:10px 26px;font-weight:800;font-size:1.05rem;letter-spacing:.2px;border-radius:999px;box-shadow:0 4px 0 rgba(0,0,0,.18),0 0 0 3px var(--gold)}
 .btnsave .saveic{display:inline-flex}
 .btnsave:hover{filter:brightness(1.08)}
@@ -436,7 +438,7 @@ a.credit:focus-visible{outline:3px solid #fff;outline-offset:4px;box-shadow:0 0 
 <div id="live" class="sr" aria-live="polite"></div>
 <script>
 "use strict";
-const VERSION = "1.2.18", STAND = "31.10.2026";
+const VERSION = "1.2.21", STAND = "01.11.2026";
 /* Sprachen in der Reihenfolge des Menüs (Gruppen: Deutsch und Mundarten, Europa, Weltweit): [Code, Kurzname, Eigenname, HTML-Sprachcode, Datumsformat, Zahlen-Stufen für Tausend/Million/Milliarde (Standard 1e3, 1e6, 1e9)] */
 const LANGS = [["de","DE","Deutsch","de","de-DE"],["at","AT","Österreichisch","de-AT","de-AT"],["ch","CH","Schweizerisch","de-CH","de-CH"],["swg","SWG","Schwäbisch","swg","de-DE"],["bay","BAY","Bayrisch","bar","de-DE"],["hes","HES","Hessisch","de","de-DE"],["sax","SAX","Sächsisch","de","de-DE"],["nds","PLATT","Plattdeutsch","nds","de-DE"],["ber","BER","Berlinerisch","de","de-DE"],
   ["en","EN","English","en","en-GB"],["fr","FR","Français","fr","fr-FR"],["it","IT","Italiano","it","it-IT"],["es","ES","Español","es","es-ES"],["pt","PT","Português","pt","pt-PT"],["nl","NL","Nederlands","nl","nl-NL"],["vls","BE","Vlaams","nl-BE","nl-BE"],["sv","SV","Svenska","sv","sv-SE"],["no","NO","Norsk","nb","nb-NO"],["pl","PL","Polski","pl","pl-PL"],["cs","CS","Čeština","cs","cs-CZ"],["hr","HR","Hrvatski","hr","hr-HR"],["hu","HU","Magyar","hu","hu-HU"],["mo","MD","Moldovenească","ro-MD","ro-MD"],["uk","UA","Українська","uk","uk-UA"],["ru","RU","Русский","ru","ru-RU"],["el","EL","Ελληνικά","el","el-GR"],["sq","AL","Shqip","sq","sq-AL"],["tr","TR","Türkçe","tr","tr-TR"],
@@ -37221,6 +37223,23 @@ const HOME = "https://nosz.github.io/herzintelligenz/";
 const NURL = LANGS.map(() => [HOME, "nosz.github.io/herzintelligenz"]);
 const WIKI = "https://de.wikipedia.org/wiki/Herz";
 const IMPRESSUM = "https://nosz.github.io/norbert-szpak/impressum.html";
+const EVENT_URL = "https://nosz.github.io/norbert-szpak/info-veranstaltung.html";
+/* Veranstaltung am 27.11.2026 (blauer Knopf im Fuß der Startseite): je Sprache [Künstliche Intelligenz, Freitag]; der App-Name kommt aus t("title"). Mundarten wie Deutsch, Vlaams wie Niederländisch */
+const EVENT_T = {de:["Künstliche Intelligenz","Freitag"], en:["Artificial Intelligence","Friday"], fr:["Intelligence artificielle","vendredi"], it:["Intelligenza artificiale","venerdì"], es:["Inteligencia artificial","viernes"], esar:["Inteligencia artificial","viernes"], pt:["Inteligência artificial","sexta-feira"], ptbr:["Inteligência artificial","sexta-feira"], nl:["Kunstmatige intelligentie","vrijdag"], vls:["Kunstmatige intelligentie","vrijdag"], sv:["Artificiell intelligens","fredag"], no:["Kunstig intelligens","fredag"], pl:["Sztuczna inteligencja","piątek"], cs:["Umělá inteligence","pátek"], hr:["Umjetna inteligencija","petak"], hu:["Mesterséges intelligencia","péntek"], mo:["Inteligența artificială","vineri"], uk:["Штучний інтелект","п’ятниця"], ru:["Искусственный интеллект","пятница"], el:["Τεχνητή νοημοσύνη","Παρασκευή"], sq:["Inteligjenca artificiale","e premte"], tr:["Yapay zekâ","Cuma"], zh:["人工智能","星期五"], ja:["人工知能","金曜日"], vi:["Trí tuệ nhân tạo","Thứ Sáu"], bn:["কৃত্রিম বুদ্ধিমত্তা","শুক্রবার"], kk:["Жасанды интеллект","жұма"]};
+const eventE = () => EVENT_T[LANGS[li][0]] || EVENT_T.de;
+const eventText = () => t("title") + " vs. " + eventE()[0];
+/* Titel des Knopfs mit kleinem rotem Herz hinter dem Wort „Herz“ (in jeder Sprache hinter dem Wort für Herz); Zusammensetzungen wie Herzintelligenz werden zu „Herz ❤ Intelligenz“ */
+const HERZ_WORT = /(Heart|Kalp|cœur|cuore|corazón|coração|serca|srdce|srca|inimii|серця|сердца|καρδιάς|Zemrës|心|ハート|trái tim|হৃদয়ের|Жүрек)/;
+const eventTitel = () => {
+  const ti = t("title"), herz = () => h("span", {class:"hz", "aria-hidden":"true", text:"❤️"});
+  const vs = " vs. " + eventE()[0];
+  let m = ti.match(/^(Herz|Härz|Hart|Hjärt|Hjerte|Szív)(intelli\S*)$/i);
+  if(m) return [m[1] + " ", herz(), " " + m[2].charAt(0).toUpperCase() + m[2].slice(1) + vs];
+  m = ti.match(HERZ_WORT);
+  if(m){ const i = m.index + m[0].length, sp = /[心ハ]/.test(m[0]) ? "" : " "; return [ti.slice(0, i) + sp, herz(), (sp && ti.slice(i).charAt(0) !== " " ? "" : "") + ti.slice(i) + vs]; }
+  return [ti + vs];
+};
+const eventDatum = () => eventE()[1] + ", 27.11.2026, Heilbronn-Horkheim";
 const MORE = [
   ["tank", "moreE", "moreEd", "https://nosz.github.io/energietankstelle", "nosz.github.io/energietankstelle"],
   ["⚡", "moreC", "moreCd", "https://nosz.github.io/challenge-app/", "nosz.github.io/challenge-app"],
@@ -37851,7 +37870,7 @@ function herziIkon(){
 /* Speichern-Knopf (Name): Diskettensymbol vor dem Text, damit klar ist, dass hier gespeichert wird */
 function saveIcon(){ const s = document.createElement("span"); s.className = "saveic"; s.setAttribute("aria-hidden", "true"); s.innerHTML = '<svg viewBox="0 0 24 24" width="22" height="22" focusable="false" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>'; return s; }
 /* Symbole des Autoren-Knopfs: Kettenglied (Link) und Pfeil aus dem Kasten (externe Seite, oeffnet in neuem Tab) */
-const CRED_ICO = {link:'<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>', ext:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/>'};
+const CRED_ICO = {link:'<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>', cal:'<rect x="3" y="4.5" width="18" height="16.5" rx="2.5"/><path d="M3 10h18"/><path d="M8 2.5v4"/><path d="M16 2.5v4"/>', ext:'<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6"/><path d="M10 14L21 3"/>'};
 function credIcon(k, cls){ const s = document.createElement("span"); s.className = cls; s.setAttribute("aria-hidden", "true"); s.innerHTML = '<svg viewBox="0 0 24 24" width="24" height="24" focusable="false" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">' + CRED_ICO[k] + '</svg>'; return s; }
 function chrome(){
   document.documentElement.lang = LANGS[li][3];
@@ -37867,7 +37886,7 @@ function chrome(){
       h("ul", {class:"srclist"}, sl.src.map(s => h("li", null, h("a", {href:s[1], rel:"noopener"}, s[0][li]))))) : null,
     view.v !== "home" ? h("div", {class:"fhome"}, h("button", {type:"button", class:"btn ghost", onclick:() => go("home")}, (() => { const s = h("span", {"aria-hidden":"true"}); s.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-6h4v6"/></svg>'; return s; })(), h("span", {text:t("toHome")}))) : null,
     view.v === "home" ? h("div", {class:"fcard"}, h("span", {class:"fic", "aria-hidden":"true"}, "ℹ️"), h("div", null, h("p", {class:"fdisc", text:t("disc")}), h("p", {class:"ftrans", text:t("trans")}))) : null,
-    view.v === "home" ? h("div", {class:"fcredit"}, h("p", {class:"fver"}, h("span", {text:t("ver") + " " + VERSION})), h("a", {class:"credit", href:"https://nosz.github.io/norbert-szpak/", target:"_blank", rel:"noopener noreferrer", "aria-label":"Website Design by Norbert, nosz.github.io/norbert-szpak"}, credIcon("link", "cr-ic"), h("span", {class:"cr-tx"}, h("span", {class:"cr-t", text:"Website Design by Norbert"}), h("span", {class:"cr-u", text:"nosz.github.io/norbert-szpak"})), credIcon("ext", "cr-ex"))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
+    view.v === "home" ? h("div", {class:"fcredit"}, h("p", {class:"fver"}, h("span", {text:t("ver") + " " + VERSION})), h("a", {class:"credit", href:"https://nosz.github.io/norbert-szpak/", target:"_blank", rel:"noopener noreferrer", "aria-label":"Website Design by Norbert, nosz.github.io/norbert-szpak"}, credIcon("link", "cr-ic"), h("span", {class:"cr-tx"}, h("span", {class:"cr-t", text:"Website Design by Norbert"}), h("span", {class:"cr-u", text:"nosz.github.io/norbert-szpak"})), credIcon("ext", "cr-ex")), h("a", {class:"credit credit-evt", href:EVENT_URL, target:"_blank", rel:"noopener noreferrer", "aria-label":eventText() + ", " + eventDatum()}, credIcon("cal", "cr-ic"), h("span", {class:"cr-tx"}, h("span", {class:"cr-t"}, ...eventTitel()), h("span", {class:"cr-u", text:eventDatum()})), credIcon("ext", "cr-ex"))) : null, legalNav()].filter(Boolean));   // Info und Version nur auf der ersten Seite
 }
 $("#brand").onclick = () => {
   if(view.v === "home"){ const rm = matchMedia("(prefers-reduced-motion: reduce)").matches; window.scrollTo({top:0, behavior: rm ? "auto" : "smooth"}); $("#main").focus({preventScroll:true}); }

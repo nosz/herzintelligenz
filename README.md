@@ -74,4 +74,4 @@ Ein Klick startet die App gleich in der jeweiligen Sprache (Adresse mit `?lang=<
 - Die Mundarten und Fremdsprachen sind liebevoll gemeint; Muttersprachler dürfen gern korrigieren.
 - Weitere Seiten von Norbert findest du in der App unter „Interessante Links“.
 
-**Von Norbert Szpak** · [Impressum](https://nosz.github.io/norbert-szpak/impressum.html) · Version 1.2.18 (31.10.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
+**Von Norbert Szpak** · [Impressum](https://nosz.github.io/norbert-szpak/impressum.html) · Version 1.2.21 (01.11.2026) · Flaggen aus [flag-icons](https://github.com/lipis/flag-icons) (MIT-Lizenz)
